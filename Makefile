@@ -114,6 +114,11 @@ website_files = \
 
 doc: program $(apidoc_dirs) $(website_files) $(apiassets) $(apidocs) tools/doc/
 
+doc-es:
+	make docclean
+	make doc
+	bash movefiles.sh
+
 $(apidoc_dirs):
 	mkdir -p $@
 
@@ -133,7 +138,7 @@ out/doc/api/%.json: doc/api/%.markdown
 	out/Release/node tools/doc/generate.js --format=json $< > $@
 
 out/doc/api/%.html: doc/api/%.markdown
-	out/Release/node tools/doc/generate.js --format=html --template=doc/template.html $< > $@
+	out/Release/node tools/doc/generate.js --format=html --template=doc/template-es.html $< > $@
 
 email.md: ChangeLog tools/email-footer.md
 	bash tools/changelog-head.sh | sed 's|^\* #|* \\#|g' > $@
