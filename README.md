@@ -67,7 +67,12 @@ seguimiento de la traducción es una complicación adicional. Si a esto le sumam
 
   * Cada versión de la API tiene su propia rama de trabajo. Por ejemplo, en
   este momento contamos con la versión de node estable v0.6.19 por lo que tenemos en nuestro repositorio una rama llamada v0.6.19-release.
-  * Nunca se trabaja sobre la rama master. Siempre es mejor, y altamente recomendado, crear ramas para cada modificación que se hace. Por ejemplo ... si se está trabajando en la traducción Events un nombre de rama correto podría ser v0.6.18-release_events
+
+  * Nunca se trabaja sobre la rama master. Siempre es mejor, y altamente
+  recomendado, crear ramas para cada modificación que se hace. Por ejemplo ...
+  si se está trabajando en la traducción Events un nombre de rama correto
+  podría ser v0.6.18-release_events.
+
   * Los archivos fuentes de la documentación están en formato .markdown dentro
   de la carpeta doc/api/. Los archivos en español terminan en -es.markdwon.
 
