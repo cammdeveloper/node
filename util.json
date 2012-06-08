@@ -1,12 +1,12 @@
 {
-  "source": "doc/api/util.markdown",
+  "source": "doc/api/util-es.markdown",
   "modules": [
     {
       "textRaw": "util",
       "name": "util",
       "stability": 5,
       "stabilityText": "Locked",
-      "desc": "<p>These functions are in the module <code>&apos;util&apos;</code>. Use <code>require(&apos;util&apos;)</code> to access\nthem.\n\n\n</p>\n",
+      "desc": "<p>Estas funciones estan en el módulo <code>&apos;util&apos;</code>. Usa <code>require(&apos;util&apos;)</code> para acceder \na ellas.\n\n\n</p>\n",
       "methods": [
         {
           "textRaw": "util.format()",
@@ -23,54 +23,52 @@
           "textRaw": "util.debug(string)",
           "type": "method",
           "name": "debug",
-          "desc": "<p>A synchronous output function. Will block the process and\noutput <code>string</code> immediately to <code>stderr</code>.\n\n</p>\n<pre><code>require(&apos;util&apos;).debug(&apos;message on stderr&apos;);</code></pre>\n",
+          "desc": "<p>Una función de salida síncrona. Bloquerá el proceso y pondrá \n<code>string</code> inmediatamente en <code>stderr</code>.\n\n</p>\n<pre><code>require(&apos;util&apos;).debug(&apos;mensaje en stderr&apos;);</code></pre>\n",
+          "methods": [
+            {
+              "textRaw": "util.log(string)",
+              "type": "method",
+              "name": "log",
+              "desc": "<p>Salida con timestamp en <code>stdout</code>.\n\n</p>\n<pre><code>require(&apos;util&apos;).log(&apos;Mensaje con marca de tiempo.&apos;);</code></pre>\n",
+              "signatures": [
+                {
+                  "params": [
+                    {
+                      "name": "string"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "textRaw": "util.inspect(object, showHidden=false, depth=2)",
+              "type": "method",
+              "name": "inspect",
+              "desc": "<p>Devuelve la cadena que representa a <code>object</code>, lo cual es útil para corregir fallos.\n\n</p>\n<p>Si <code>showHidden</code> es <code>true</code>, entonces las propiedades no-enumerables del \nobjeto serán mostradas también. Por omisión es <code>false</code>.\n\n</p>\n<p>Si <code>depth</code> es proporcionado, le dice a <code>inspect</code> cuantas veces tiene que recurrir\nmientras formatea el objeto. Esto es útil para objetos muy largos y complejos.\n\n</p>\n<p>Por defecto solo se recurre un par de veces. Para hacer que recurra indefinidamente\npasa <code>null</code> a <code>depth</code>.\n\n</p>\n<p>Si <code>colors</code> es <code>true</code>, entonces la salida mostrará los estilos con los código de colores en ANSI.\nPor omisión es <code>false</code>.\n\n</p>\n<p>Ejemplo de inspeccionar todas las propiedades del objeto <code>util</code>:\n\n</p>\n<pre><code>var util = require(&apos;util&apos;);\n\nconsole.log(util.inspect(util, true, null));</code></pre>\n",
+              "signatures": [
+                {
+                  "params": [
+                    {
+                      "name": "object"
+                    },
+                    {
+                      "name": "showHidden",
+                      "default": "false"
+                    },
+                    {
+                      "name": "depth",
+                      "default": "2"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
           "signatures": [
             {
               "params": [
                 {
                   "name": "string"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "textRaw": "util.log(string)",
-          "type": "method",
-          "name": "log",
-          "desc": "<p>Output with timestamp on <code>stdout</code>.\n\n</p>\n<pre><code>require(&apos;util&apos;).log(&apos;Timestamped message.&apos;);</code></pre>\n",
-          "signatures": [
-            {
-              "params": [
-                {
-                  "name": "string"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "textRaw": "util.inspect(object, [showHidden], [depth], [colors])",
-          "type": "method",
-          "name": "inspect",
-          "desc": "<p>Return a string representation of <code>object</code>, which is useful for debugging.\n\n</p>\n<p>If <code>showHidden</code> is <code>true</code>, then the object&apos;s non-enumerable properties will be\nshown too. Defaults to <code>false</code>.\n\n</p>\n<p>If <code>depth</code> is provided, it tells <code>inspect</code> how many times to recurse while\nformatting the object. This is useful for inspecting large complicated objects.\n\n</p>\n<p>The default is to only recurse twice.  To make it recurse indefinitely, pass\nin <code>null</code> for <code>depth</code>.\n\n</p>\n<p>If <code>colors</code> is <code>true</code>, the output will be styled with ANSI color codes.\nDefaults to <code>false</code>.\n\n</p>\n<p>Example of inspecting all properties of the <code>util</code> object:\n\n</p>\n<pre><code>var util = require(&apos;util&apos;);\n\nconsole.log(util.inspect(util, true, null));</code></pre>\n",
-          "signatures": [
-            {
-              "params": [
-                {
-                  "name": "object"
-                },
-                {
-                  "name": "showHidden",
-                  "optional": true
-                },
-                {
-                  "name": "depth",
-                  "optional": true
-                },
-                {
-                  "name": "colors",
-                  "optional": true
                 }
               ]
             }
@@ -140,7 +138,27 @@
           "textRaw": "util.pump(readableStream, writableStream, [callback])",
           "type": "method",
           "name": "pump",
-          "desc": "<p>Experimental\n\n</p>\n<p>Read the data from <code>readableStream</code> and send it to the <code>writableStream</code>.\nWhen <code>writableStream.write(data)</code> returns <code>false</code> <code>readableStream</code> will be\npaused until the <code>drain</code> event occurs on the <code>writableStream</code>. <code>callback</code> gets\nan error as its only argument and is called when <code>writableStream</code> is closed or\nwhen an error occurs.\n\n\n</p>\n",
+          "desc": "<p>Experimental\n\n</p>\n<p>Lee los datos desde <code>readableStream</code> y los envia al <code>writableStream</code>.\nCuando <code>writableStream.write(data)</code> devuelve <code>false</code> <code>readableStream</code> será\npausado hasta que ocurra el evento <code>drain</code> sobre <code>writableStream</code>. <code>callback</code>\ntiene un error como único argumento y es llamada cuando <code>writableStream</code> es\ncerrado o cuando ocurre un error.\n\n\n</p>\n",
+          "methods": [
+            {
+              "textRaw": "util.inherits(constructor, superConstructor)",
+              "type": "method",
+              "name": "inherits",
+              "desc": "<p>Hereda los métodos del prototype desde un \n<a href=\"https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/constructor\">constructor</a>\ndentro de otro. El prototype del <code>constructor</code> será configurado a un nuevo\nobjecto creado desde <code>superConstructor</code>.\n\n</p>\n<p>Como mejora adicional, <code>superConstructor</code>será accesible atravez de \nla propiedad <code>constructor.super_</code>.\n\n</p>\n<pre><code>var util = require(&quot;util&quot;);\nvar events = require(&quot;events&quot;);\n\nfunction MyStream() {\n    events.EventEmitter.call(this);\n}\n\nutil.inherits(MyStream, events.EventEmitter);\n\nMyStream.prototype.write = function(data) {\n    this.emit(&quot;data&quot;, data);\n}\n\nvar stream = new MyStream();\n\nconsole.log(stream instanceof events.EventEmitter); // true\nconsole.log(MyStream.super_ === events.EventEmitter); // true\n\nstream.on(&quot;data&quot;, function(data) {\n    console.log(&apos;Received data: &quot;&apos; + data + &apos;&quot;&apos;);\n})\nstream.write(&quot;It works!&quot;); // Received data: &quot;It works!&quot;</code></pre>\n",
+              "signatures": [
+                {
+                  "params": [
+                    {
+                      "name": "constructor"
+                    },
+                    {
+                      "name": "superConstructor"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
           "signatures": [
             {
               "params": [
@@ -153,24 +171,6 @@
                 {
                   "name": "callback",
                   "optional": true
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "textRaw": "util.inherits(constructor, superConstructor)",
-          "type": "method",
-          "name": "inherits",
-          "desc": "<p>Inherit the prototype methods from one\n<a href=\"https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/constructor\">constructor</a>\ninto another.  The prototype of <code>constructor</code> will be set to a new\nobject created from <code>superConstructor</code>.\n\n</p>\n<p>As an additional convenience, <code>superConstructor</code> will be accessible\nthrough the <code>constructor.super_</code> property.\n\n</p>\n<pre><code>var util = require(&quot;util&quot;);\nvar events = require(&quot;events&quot;);\n\nfunction MyStream() {\n    events.EventEmitter.call(this);\n}\n\nutil.inherits(MyStream, events.EventEmitter);\n\nMyStream.prototype.write = function(data) {\n    this.emit(&quot;data&quot;, data);\n}\n\nvar stream = new MyStream();\n\nconsole.log(stream instanceof events.EventEmitter); // true\nconsole.log(MyStream.super_ === events.EventEmitter); // true\n\nstream.on(&quot;data&quot;, function(data) {\n    console.log(&apos;Received data: &quot;&apos; + data + &apos;&quot;&apos;);\n})\nstream.write(&quot;It works!&quot;); // Received data: &quot;It works!&quot;</code></pre>\n",
-          "signatures": [
-            {
-              "params": [
-                {
-                  "name": "constructor"
-                },
-                {
-                  "name": "superConstructor"
                 }
               ]
             }

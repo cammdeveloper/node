@@ -1,18 +1,15 @@
 {
-  "source": "doc/api/timers.markdown",
+  "source": "doc/api/timers-es.markdown",
   "modules": [
     {
-      "textRaw": "Timers",
-      "name": "timers",
-      "stability": 5,
-      "stabilityText": "Locked",
-      "desc": "<p>All of the timer functions are globals.  You do not need to <code>require()</code>\nthis module in order to use them.\n\n</p>\n",
+      "textRaw": "Timer",
+      "name": "timer",
       "methods": [
         {
           "textRaw": "setTimeout(callback, delay, [arg], [...])",
           "type": "method",
           "name": "setTimeout",
-          "desc": "<p>To schedule execution of a one-time <code>callback</code> after <code>delay</code> milliseconds. Returns a\n<code>timeoutId</code> for possible use with <code>clearTimeout()</code>. Optionally you can\nalso pass arguments to the callback.\n\n</p>\n<p>It is important to note that your callback will probably not be called in exactly\n<code>delay</code> milliseconds - Node.js makes no guarantees about the exact timing of when\nthe callback will fire, nor of the ordering things will fire in. The callback will\nbe called as close as possible to the time specified.\n\n</p>\n",
+          "desc": "<p>Para programar la ejecución de <code>callback</code> después de <code>delay</code> milisegundos. Devuelve un <code>timeoutId</code> para un posible uso con <code>clearTimeout()</code>. Opcionalmente, tu puedes también pasar argumentos al callback.\n\n</p>\n",
           "signatures": [
             {
               "params": [
@@ -38,7 +35,7 @@
           "textRaw": "clearTimeout(timeoutId)",
           "type": "method",
           "name": "clearTimeout",
-          "desc": "<p>Prevents a timeout from triggering.\n\n</p>\n",
+          "desc": "<p>Evita la ejecución de un callback por uno de sus disparadores.\n\n</p>\n",
           "signatures": [
             {
               "params": [
@@ -53,7 +50,7 @@
           "textRaw": "setInterval(callback, delay, [arg], [...])",
           "type": "method",
           "name": "setInterval",
-          "desc": "<p>To schedule the repeated execution of <code>callback</code> every <code>delay</code> milliseconds.\nReturns a <code>intervalId</code> for possible use with <code>clearInterval()</code>. Optionally\nyou can also pass arguments to the callback.\n\n</p>\n",
+          "desc": "<p>Para programar la repetición repetitiva de un <code>callback</code> cada <code>delay</code> milisegundos. Devuelve un <code>intervalId</code> para un posible uso con <code>clearInterval()</code>. Opcionalmente, tu puedes también pasar argumentos al callback.\n\n</p>\n",
           "signatures": [
             {
               "params": [
@@ -79,7 +76,7 @@
           "textRaw": "clearInterval(intervalId)",
           "type": "method",
           "name": "clearInterval",
-          "desc": "<p>Stops a interval from triggering.\n</p>\n",
+          "desc": "<p>Evita la ejecución de un callback por uno de sus disparadores.\n</p>\n",
           "signatures": [
             {
               "params": [
@@ -92,7 +89,7 @@
         }
       ],
       "type": "module",
-      "displayName": "Timers"
+      "displayName": "Timer"
     }
   ]
 }

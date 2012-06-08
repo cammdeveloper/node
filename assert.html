@@ -5,9 +5,9 @@
   <title>Assert Node.js v0.6.19 Manual &amp; Documentación</title>
   <link rel="stylesheet" href="assets/style.css">
   <link rel="stylesheet" href="assets/sh.css">
-  <link rel="canonical" href="http://nodejs.org/api/assert.html">
+  <link rel="canonical" href="http://nodejs.org/api/assert-es.html">
 </head>
-<body class="alt apidoc" id="api-section-assert">
+<body class="alt apidoc" id="api-section-assert-es">
     <div id="intro" class="interior">
         <a href="http://www.nodejs.es/" title="Go back to the home page">
             <img id="logo" src="images/logo-light-es.png" alt="node.js">
@@ -50,7 +50,7 @@
               <p>
                 <a href="index.html" name="toc">Indice</a> |
                 <a href="all.html">Ver todo en una misma página</a> |
-                <a href="assert.json">Ver como JSON</a>
+                <a href="assert-es.json">Ver como JSON</a>
               </p>
             </div>
             <hr>
@@ -59,18 +59,18 @@
           <div id="toc">
             <h2>Tabla de Contenidos</h2>
             <ul>
-<li><a href="#assert_assert">Assert</a><ul>
-<li><a href="#assert_assert_fail_actual_expected_message_operator">assert.fail(actual, expected, message, operator)</a></li>
-<li><a href="#assert_assert_value_message_assert_ok_value_message">assert(value, message), assert.ok(value, [message])</a></li>
-<li><a href="#assert_assert_equal_actual_expected_message">assert.equal(actual, expected, [message])</a></li>
-<li><a href="#assert_assert_notequal_actual_expected_message">assert.notEqual(actual, expected, [message])</a></li>
-<li><a href="#assert_assert_deepequal_actual_expected_message">assert.deepEqual(actual, expected, [message])</a></li>
-<li><a href="#assert_assert_notdeepequal_actual_expected_message">assert.notDeepEqual(actual, expected, [message])</a></li>
-<li><a href="#assert_assert_strictequal_actual_expected_message">assert.strictEqual(actual, expected, [message])</a></li>
-<li><a href="#assert_assert_notstrictequal_actual_expected_message">assert.notStrictEqual(actual, expected, [message])</a></li>
-<li><a href="#assert_assert_throws_block_error_message">assert.throws(block, [error], [message])</a></li>
-<li><a href="#assert_assert_doesnotthrow_block_error_message">assert.doesNotThrow(block, [error], [message])</a></li>
-<li><a href="#assert_assert_iferror_value">assert.ifError(value)</a></li>
+<li><a href="#assert_es_assert">Assert</a><ul>
+<li><a href="#assert_es_assert_fail_actual_expected_message_operator">assert.fail(actual, expected, message, operator)</a></li>
+<li><a href="#assert_es_assert_ok_value_message">assert.ok(value, [message])</a></li>
+<li><a href="#assert_es_assert_equal_actual_expected_message">assert.equal(actual, expected, [message])</a></li>
+<li><a href="#assert_es_assert_notequal_actual_expected_message">assert.notEqual(actual, expected, [message])</a></li>
+<li><a href="#assert_es_assert_deepequal_actual_expected_message">assert.deepEqual(actual, expected, [message])</a></li>
+<li><a href="#assert_es_assert_notdeepequal_actual_expected_message">assert.notDeepEqual(actual, expected, [message])</a></li>
+<li><a href="#assert_es_assert_strictequal_actual_expected_message">assert.strictEqual(actual, expected, [message])</a></li>
+<li><a href="#assert_es_assert_notstrictequal_actual_expected_message">assert.notStrictEqual(actual, expected, [message])</a></li>
+<li><a href="#assert_es_assert_throws_block_error_message">assert.throws(block, [error], [message])</a></li>
+<li><a href="#assert_es_assert_doesnotthrow_block_error_message">assert.doesNotThrow(block, [error], [message])</a></li>
+<li><a href="#assert_es_assert_iferror_value">assert.ifError(value)</a></li>
 </ul>
 </li>
 </ul>
@@ -78,50 +78,49 @@
           </div>
 
           <div id="apicontent">
-            <h1>Assert<span><a class="mark" href="#assert_assert" id="assert_assert">#</a></span></h1>
-<pre><code>Stability: 5 - Locked</code></pre>
-<p>This module is used for writing unit tests for your applications, you can
-access it with <code>require(&apos;assert&apos;)</code>.
+            <h1>Assert<span><a class="mark" href="#assert_es_assert" id="assert_es_assert">#</a></span></h1>
+<p>Este módulo es usado para escribir pruebas unitarias de sus aplicaciones, puede
+acceder con <code>require(&apos;assert&apos;)</code>.
 
 </p>
-<h2>assert.fail(actual, expected, message, operator)<span><a class="mark" href="#assert_assert_fail_actual_expected_message_operator" id="assert_assert_fail_actual_expected_message_operator">#</a></span></h2>
-<p>Throws an exception that displays the values for <code>actual</code> and <code>expected</code> separated by the provided operator.
+<h2>assert.fail(actual, expected, message, operator)<span><a class="mark" href="#assert_es_assert_fail_actual_expected_message_operator" id="assert_es_assert_fail_actual_expected_message_operator">#</a></span></h2>
+<p>Evalua si <code>actual</code> es igual a <code>expected</code> usando el operador provisto.
 
 </p>
-<h2>assert(value, message), assert.ok(value, [message])<span><a class="mark" href="#assert_assert_value_message_assert_ok_value_message" id="assert_assert_value_message_assert_ok_value_message">#</a></span></h2>
-<p>Tests if value is a <code>true</code> value, it is equivalent to <code>assert.equal(true, value, message);</code>
+<h2>assert.ok(value, [message])<span><a class="mark" href="#assert_es_assert_ok_value_message" id="assert_es_assert_ok_value_message">#</a></span></h2>
+<p>Evalua si el valor es <code>true</code>, si es equivalente a <code>assert.equal(true, value, message);</code>
 
 </p>
-<h2>assert.equal(actual, expected, [message])<span><a class="mark" href="#assert_assert_equal_actual_expected_message" id="assert_assert_equal_actual_expected_message">#</a></span></h2>
-<p>Tests shallow, coercive equality with the equal comparison operator ( <code>==</code> ).
+<h2>assert.equal(actual, expected, [message])<span><a class="mark" href="#assert_es_assert_equal_actual_expected_message" id="assert_es_assert_equal_actual_expected_message">#</a></span></h2>
+<p>Evalua la igualdad con el operador de comparación ( <code>==</code> ).
 
 </p>
-<h2>assert.notEqual(actual, expected, [message])<span><a class="mark" href="#assert_assert_notequal_actual_expected_message" id="assert_assert_notequal_actual_expected_message">#</a></span></h2>
-<p>Tests shallow, coercive non-equality with the not equal comparison operator ( <code>!=</code> ).
+<h2>assert.notEqual(actual, expected, [message])<span><a class="mark" href="#assert_es_assert_notequal_actual_expected_message" id="assert_es_assert_notequal_actual_expected_message">#</a></span></h2>
+<p>Evalua la no igualdad con el operador de comparación en negación ( <code>!=</code> ).
 
 </p>
-<h2>assert.deepEqual(actual, expected, [message])<span><a class="mark" href="#assert_assert_deepequal_actual_expected_message" id="assert_assert_deepequal_actual_expected_message">#</a></span></h2>
-<p>Tests for deep equality.
+<h2>assert.deepEqual(actual, expected, [message])<span><a class="mark" href="#assert_es_assert_deepequal_actual_expected_message" id="assert_es_assert_deepequal_actual_expected_message">#</a></span></h2>
+<p>Pruebas para las pruebas de afirmación de desigualdad profunda.
 
 </p>
-<h2>assert.notDeepEqual(actual, expected, [message])<span><a class="mark" href="#assert_assert_notdeepequal_actual_expected_message" id="assert_assert_notdeepequal_actual_expected_message">#</a></span></h2>
-<p>Tests for any deep inequality.
+<h2>assert.notDeepEqual(actual, expected, [message])<span><a class="mark" href="#assert_es_assert_notdeepequal_actual_expected_message" id="assert_es_assert_notdeepequal_actual_expected_message">#</a></span></h2>
+<p>Pruebas para cualquier desigualdad profunda.
 
 </p>
-<h2>assert.strictEqual(actual, expected, [message])<span><a class="mark" href="#assert_assert_strictequal_actual_expected_message" id="assert_assert_strictequal_actual_expected_message">#</a></span></h2>
-<p>Tests strict equality, as determined by the strict equality operator ( <code>===</code> )
+<h2>assert.strictEqual(actual, expected, [message])<span><a class="mark" href="#assert_es_assert_strictequal_actual_expected_message" id="assert_es_assert_strictequal_actual_expected_message">#</a></span></h2>
+<p>Pruebas de igualdad estrictas, según lo determinado por el operador de igualdad estricto ( <code>===</code> )
 
 </p>
-<h2>assert.notStrictEqual(actual, expected, [message])<span><a class="mark" href="#assert_assert_notstrictequal_actual_expected_message" id="assert_assert_notstrictequal_actual_expected_message">#</a></span></h2>
-<p>Tests strict non-equality, as determined by the strict not equal operator ( <code>!==</code> )
+<h2>assert.notStrictEqual(actual, expected, [message])<span><a class="mark" href="#assert_es_assert_notstrictequal_actual_expected_message" id="assert_es_assert_notstrictequal_actual_expected_message">#</a></span></h2>
+<p>Pruebas de no igualdad estrictas, según lo determinado por el operador de no igualdad estricto ( <code>!==</code> )
 
 </p>
-<h2>assert.throws(block, [error], [message])<span><a class="mark" href="#assert_assert_throws_block_error_message" id="assert_assert_throws_block_error_message">#</a></span></h2>
-<p>Expects <code>block</code> to throw an error. <code>error</code> can be constructor, regexp or 
-validation function.
+<h2>assert.throws(block, [error], [message])<span><a class="mark" href="#assert_es_assert_throws_block_error_message" id="assert_es_assert_throws_block_error_message">#</a></span></h2>
+<p>Se espera lanzar un <code>bloque</code>(block) de error. El <code>error</code> puede ser un constructor, expresión regular (regexp) o 
+una función de validación.
 
 </p>
-<p>Validate instanceof using constructor:
+<p>Validar instanceof usando el constructor:
 
 </p>
 <pre><code>assert.throws(
@@ -130,7 +129,7 @@ validation function.
   },
   Error
 );</code></pre>
-<p>Validate error message using RegExp:
+<p>Validar un mensaje de error usando RegExp:
 
 </p>
 <pre><code>assert.throws(
@@ -139,7 +138,7 @@ validation function.
   },
   /value/
 );</code></pre>
-<p>Custom error validation:
+<p>Error de validación personalizado:
 
 </p>
 <pre><code>assert.throws(
@@ -153,13 +152,13 @@ validation function.
   },
   &quot;unexpected error&quot;
 );</code></pre>
-<h2>assert.doesNotThrow(block, [error], [message])<span><a class="mark" href="#assert_assert_doesnotthrow_block_error_message" id="assert_assert_doesnotthrow_block_error_message">#</a></span></h2>
-<p>Expects <code>block</code> not to throw an error, see assert.throws for details.
+<h2>assert.doesNotThrow(block, [error], [message])<span><a class="mark" href="#assert_es_assert_doesnotthrow_block_error_message" id="assert_es_assert_doesnotthrow_block_error_message">#</a></span></h2>
+<p>Se espera un <code>bloque</code> (block) y no produzca un error, vea assert.throws para más detalles.
 
 </p>
-<h2>assert.ifError(value)<span><a class="mark" href="#assert_assert_iferror_value" id="assert_assert_iferror_value">#</a></span></h2>
-<p>Tests if value is not a false value, throws if it is a true value. Useful when
-testing the first argument, <code>error</code> in callbacks.
+<h2>assert.ifError(value)<span><a class="mark" href="#assert_es_assert_iferror_value" id="assert_es_assert_iferror_value">#</a></span></h2>
+<p>Comprueba si el valor no es falso, se produce un lanzamiento si el valor es verdadero. Muy útil
+cuando se prueba el primer argumento, <code>error</code> en los callbacks.
 </p>
 
           </div>

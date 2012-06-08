@@ -1,5 +1,5 @@
 {
-  "source": "doc/api/stdio.markdown",
+  "source": "doc/api/stdio-es.markdown",
   "globals": [
     {
       "textRaw": "console",
@@ -116,7 +116,7 @@
           "textRaw": "console.assert()",
           "type": "method",
           "name": "assert",
-          "desc": "<p>Same as <code>assert.ok()</code>.\n\n</p>\n",
+          "desc": "<p>Same as <code>assert.ok()</code>.\n</p>\n",
           "signatures": [
             {
               "params": []

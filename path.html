@@ -5,9 +5,9 @@
   <title>Path Node.js v0.6.19 Manual &amp; Documentación</title>
   <link rel="stylesheet" href="assets/style.css">
   <link rel="stylesheet" href="assets/sh.css">
-  <link rel="canonical" href="http://nodejs.org/api/path.html">
+  <link rel="canonical" href="http://nodejs.org/api/path-es.html">
 </head>
-<body class="alt apidoc" id="api-section-path">
+<body class="alt apidoc" id="api-section-path-es">
     <div id="intro" class="interior">
         <a href="http://www.nodejs.es/" title="Go back to the home page">
             <img id="logo" src="images/logo-light-es.png" alt="node.js">
@@ -50,7 +50,7 @@
               <p>
                 <a href="index.html" name="toc">Indice</a> |
                 <a href="all.html">Ver todo en una misma página</a> |
-                <a href="path.json">Ver como JSON</a>
+                <a href="path-es.json">Ver como JSON</a>
               </p>
             </div>
             <hr>
@@ -59,16 +59,14 @@
           <div id="toc">
             <h2>Tabla de Contenidos</h2>
             <ul>
-<li><a href="#path_path">Path</a><ul>
-<li><a href="#path_path_normalize_p">path.normalize(p)</a></li>
-<li><a href="#path_path_join_path1_path2">path.join([path1], [path2], [...])</a></li>
-<li><a href="#path_path_resolve_from_to">path.resolve([from ...], to)</a></li>
-<li><a href="#path_path_relative_from_to">path.relative(from, to)</a></li>
-<li><a href="#path_path_dirname_p">path.dirname(p)</a></li>
-<li><a href="#path_path_basename_p_ext">path.basename(p, [ext])</a></li>
-<li><a href="#path_path_extname_p">path.extname(p)</a></li>
-<li><a href="#path_path_exists_p_callback">path.exists(p, [callback])</a></li>
-<li><a href="#path_path_existssync_p">path.existsSync(p)</a></li>
+<li><a href="#path_es_path">Path</a><ul>
+<li><a href="#path_es_path_normalize_p">path.normalize(p)</a></li>
+<li><a href="#path_es_path_join_path1_path2">path.join([path1], [path2], [...])</a></li>
+<li><a href="#path_es_path_resolve_from_to">path.resolve([from ...], to)</a></li>
+<li><a href="#path_es_path_relative_from_to">path.relative(from, to)</a></li>
+<li><a href="#path_es_path_dirname_p">path.dirname(p)</a></li>
+<li><a href="#path_es_path_basename_p_ext">path.basename(p, [ext])</a></li>
+<li><a href="#path_es_path_extname_p">path.extname(p)</a></li>
 </ul>
 </li>
 </ul>
@@ -76,27 +74,23 @@
           </div>
 
           <div id="apicontent">
-            <h1>Path<span><a class="mark" href="#path_path" id="path_path">#</a></span></h1>
+            <h1>Path<span><a class="mark" href="#path_es_path" id="path_es_path">#</a></span></h1>
 <pre><code>Stability: 3 - Stable</code></pre>
-<p>This module contains utilities for handling and transforming file
-paths.  Almost all these methods perform only string transformations.
-The file system is not consulted to check whether paths are valid.
+<p>Este módulo contiene utilidades para trabajar con rutas de fichero.
+Casi todos los métodos llevan sólo una transformaciones en el string.
+El sistema de archivos no es consulta para comprobar si las rutas son válidos.
 
 </p>
-<p><code>path.exists</code> and <code>path.existsSync</code> are the exceptions, and should
-logically be found in the fs module as they do access the file system.
+<p>Utilice <code>require(&apos;path&apos;)</code> para utilizarlo.  Los siguientes métodos son provistos:
 
 </p>
-<p>Use <code>require(&apos;path&apos;)</code> to use this module.  The following methods are provided:
+<h2>path.normalize(p)<span><a class="mark" href="#path_es_path_normalize_p" id="path_es_path_normalize_p">#</a></span></h2>
+<p>Normaliza la cadena de texto de una ruta, se encarga de las partes <code>&apos;..&apos;</code> y <code>&apos;.&apos;</code>.
 
 </p>
-<h2>path.normalize(p)<span><a class="mark" href="#path_path_normalize_p" id="path_path_normalize_p">#</a></span></h2>
-<p>Normalize a string path, taking care of <code>&apos;..&apos;</code> and <code>&apos;.&apos;</code> parts.
-
-</p>
-<p>When multiple slashes are found, they&apos;re replaced by a single one;
-when the path contains a trailing slash, it is preserved.
-On windows backslashes are used. 
+<p>Cuando se encuentra múltiples barras, se reemplazan por una sola;
+cuando la ruta acaba en barra, se conserva.
+En windows se utilizan contrabarras.
 
 </p>
 <p>Example:
@@ -105,8 +99,8 @@ On windows backslashes are used.
 <pre><code>path.normalize(&apos;/foo/bar//baz/asdf/quux/..&apos;)
 // returns
 &apos;/foo/bar/baz/asdf&apos;</code></pre>
-<h2>path.join([path1], [path2], [...])<span><a class="mark" href="#path_path_join_path1_path2" id="path_path_join_path1_path2">#</a></span></h2>
-<p>Join all arguments together and normalize the resulting path.
+<h2>path.join([path1], [path2], [...])<span><a class="mark" href="#path_es_path_join_path1_path2" id="path_es_path_join_path1_path2">#</a></span></h2>
+<p>Junta todos los argumentos y normaliza la ruta resultante.
 Non-string arguments are ignored.
 
 </p>
@@ -120,8 +114,8 @@ Non-string arguments are ignored.
 path.join(&apos;foo&apos;, {}, &apos;bar&apos;)
 // returns
 &apos;foo/bar&apos;</code></pre>
-<h2>path.resolve([from ...], to)<span><a class="mark" href="#path_path_resolve_from_to" id="path_path_resolve_from_to">#</a></span></h2>
-<p>Resolves <code>to</code> to an absolute path.
+<h2>path.resolve([from ...], to)<span><a class="mark" href="#path_es_path_resolve_from_to" id="path_es_path_resolve_from_to">#</a></span></h2>
+<p>Resuelve <code>to</code> a una ruta absoluta.
 
 </p>
 <p>If <code>to</code> isn&apos;t already absolute <code>from</code> arguments are prepended in right to left
@@ -131,11 +125,18 @@ resulting path is normalized, and trailing slashes are removed unless the path
 gets resolved to the root directory. Non-string arguments are ignored.
 
 </p>
-<p>Another way to think of it is as a sequence of <code>cd</code> commands in a shell.
+<p>Si <code>to</code> no es absoluta los argumentos <code>from</code> se anteponen ordenados de derecha a 
+izquierda, hasta que se encuentra una ruta absoluta. Si después de usar todas las rutas de <code>from</code> 
+aún no se encuentra una ruta absoluta, también se utiliza el directorio actual de trabajo. La 
+ruta resultante se normaliza, y se eliminan las barras finales a no ser que 
+se resuelva el directorio root.
+
+</p>
+<p>Otra manera de verlo es como una secuencia de comandos <code>cd</code> en un shell.
 
 </p>
 <pre><code>path.resolve(&apos;foo/bar&apos;, &apos;/tmp/file/&apos;, &apos;..&apos;, &apos;a/../subfile&apos;)</code></pre>
-<p>Is similar to:
+<p>Es como:
 
 </p>
 <pre><code>cd foo/bar
@@ -143,11 +144,11 @@ cd /tmp/file/
 cd ..
 cd a/../subfile
 pwd</code></pre>
-<p>The difference is that the different paths don&apos;t need to exist and may also be
-files.
+<p>La diferencia es que las distintas rutas no necesitan existir e incluso pueden 
+ser ficheros.
 
 </p>
-<p>Examples:
+<p>Ejemplos:
 
 </p>
 <pre><code>path.resolve(&apos;/foo/bar&apos;, &apos;./baz&apos;)
@@ -161,7 +162,7 @@ path.resolve(&apos;/foo/bar&apos;, &apos;/tmp/file/&apos;)
 path.resolve(&apos;wwwroot&apos;, &apos;static_files/png/&apos;, &apos;../gif/image.gif&apos;)
 // if currently in /home/myself/node, it returns
 &apos;/home/myself/node/wwwroot/static_files/gif/image.gif&apos;</code></pre>
-<h2>path.relative(from, to)<span><a class="mark" href="#path_path_relative_from_to" id="path_path_relative_from_to">#</a></span></h2>
+<h2>path.relative(from, to)<span><a class="mark" href="#path_es_path_relative_from_to" id="path_es_path_relative_from_to">#</a></span></h2>
 <p>Solve the relative path from <code>from</code> to <code>to</code>.
 
 </p>
@@ -171,7 +172,7 @@ path from one to the other.  This is actually the reverse transform of
 
 </p>
 <pre><code>path.resolve(from, path.relative(from, to)) == path.resolve(to)</code></pre>
-<p>Examples:
+<p>Ejemplos:
 
 </p>
 <pre><code>path.relative(&apos;C:\\orandea\\test\\aaa&apos;, &apos;C:\\orandea\\impl\\bbb&apos;)
@@ -181,21 +182,21 @@ path from one to the other.  This is actually the reverse transform of
 path.relative(&apos;/data/orandea/test/aaa&apos;, &apos;/data/orandea/impl/bbb&apos;)
 // returns
 &apos;../../impl/bbb&apos;</code></pre>
-<h2>path.dirname(p)<span><a class="mark" href="#path_path_dirname_p" id="path_path_dirname_p">#</a></span></h2>
-<p>Return the directory name of a path.  Similar to the Unix <code>dirname</code> command.
+<h2>path.dirname(p)<span><a class="mark" href="#path_es_path_dirname_p" id="path_es_path_dirname_p">#</a></span></h2>
+<p>Devuelve el nombre de directorio de una ruta.  Semejante al comando de Unix <code>dirname</code>.
 
 </p>
-<p>Example:
+<p>Ejemplo:
 
 </p>
 <pre><code>path.dirname(&apos;/foo/bar/baz/asdf/quux&apos;)
 // returns
 &apos;/foo/bar/baz/asdf&apos;</code></pre>
-<h2>path.basename(p, [ext])<span><a class="mark" href="#path_path_basename_p_ext" id="path_path_basename_p_ext">#</a></span></h2>
-<p>Return the last portion of a path.  Similar to the Unix <code>basename</code> command.
+<h2>path.basename(p, [ext])<span><a class="mark" href="#path_es_path_basename_p_ext" id="path_es_path_basename_p_ext">#</a></span></h2>
+<p>Devuelve la última parte de una ruta.  Semejante al comando de Unix <code>basename</code>.
 
 </p>
-<p>Example:
+<p>Ejemplo:
 
 </p>
 <pre><code>path.basename(&apos;/foo/bar/baz/asdf/quux.html&apos;)
@@ -205,11 +206,10 @@ path.relative(&apos;/data/orandea/test/aaa&apos;, &apos;/data/orandea/impl/bbb&a
 path.basename(&apos;/foo/bar/baz/asdf/quux.html&apos;, &apos;.html&apos;)
 // returns
 &apos;quux&apos;</code></pre>
-<h2>path.extname(p)<span><a class="mark" href="#path_path_extname_p" id="path_path_extname_p">#</a></span></h2>
-<p>Return the extension of the path, from the last &apos;.&apos; to end of string
-in the last portion of the path.  If there is no &apos;.&apos; in the last portion
-of the path or the first character of it is &apos;.&apos;, then it returns
-an empty string.  Examples:
+<h2>path.extname(p)<span><a class="mark" href="#path_es_path_extname_p" id="path_es_path_extname_p">#</a></span></h2>
+<p>Devuelve la extensión de la ruta.  Todo lo que hay después del último &apos;.&apos; 
+en la última parte de la ruta. Si no hay &apos;.&apos; en la última parte de la ruta o el único 
+&apos;.&apos; es el primer carácter, entonces devuelve un string vacío.  Ejemplos:
 
 </p>
 <pre><code>path.extname(&apos;index.html&apos;)
@@ -223,17 +223,6 @@ path.extname(&apos;index.&apos;)
 path.extname(&apos;index&apos;)
 // returns
 &apos;&apos;</code></pre>
-<h2>path.exists(p, [callback])<span><a class="mark" href="#path_path_exists_p_callback" id="path_path_exists_p_callback">#</a></span></h2>
-<p>Test whether or not the given path exists by checking with the file system.
-Then call the <code>callback</code> argument with either true or false.  Example:
-
-</p>
-<pre><code>path.exists(&apos;/etc/passwd&apos;, function (exists) {
-  util.debug(exists ? &quot;it&apos;s there&quot; : &quot;no passwd!&quot;);
-});</code></pre>
-<h2>path.existsSync(p)<span><a class="mark" href="#path_path_existssync_p" id="path_path_existssync_p">#</a></span></h2>
-<p>Synchronous version of <code>path.exists</code>.
-</p>
 
           </div>
         </div>

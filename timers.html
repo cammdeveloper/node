@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Timers Node.js v0.6.19 Manual &amp; Documentación</title>
+  <title>Timer Node.js v0.6.19 Manual &amp; Documentación</title>
   <link rel="stylesheet" href="assets/style.css">
   <link rel="stylesheet" href="assets/sh.css">
-  <link rel="canonical" href="http://nodejs.org/api/timers.html">
+  <link rel="canonical" href="http://nodejs.org/api/timers-es.html">
 </head>
-<body class="alt apidoc" id="api-section-timers">
+<body class="alt apidoc" id="api-section-timers-es">
     <div id="intro" class="interior">
         <a href="http://www.nodejs.es/" title="Go back to the home page">
             <img id="logo" src="images/logo-light-es.png" alt="node.js">
@@ -50,7 +50,7 @@
               <p>
                 <a href="index.html" name="toc">Indice</a> |
                 <a href="all.html">Ver todo en una misma página</a> |
-                <a href="timers.json">Ver como JSON</a>
+                <a href="timers-es.json">Ver como JSON</a>
               </p>
             </div>
             <hr>
@@ -59,11 +59,11 @@
           <div id="toc">
             <h2>Tabla de Contenidos</h2>
             <ul>
-<li><a href="#timers_timers">Timers</a><ul>
-<li><a href="#timers_settimeout_callback_delay_arg">setTimeout(callback, delay, [arg], [...])</a></li>
-<li><a href="#timers_cleartimeout_timeoutid">clearTimeout(timeoutId)</a></li>
-<li><a href="#timers_setinterval_callback_delay_arg">setInterval(callback, delay, [arg], [...])</a></li>
-<li><a href="#timers_clearinterval_intervalid">clearInterval(intervalId)</a></li>
+<li><a href="#timers_es_timer">Timer</a><ul>
+<li><a href="#timers_es_settimeout_callback_delay_arg">setTimeout(callback, delay, [arg], [...])</a></li>
+<li><a href="#timers_es_cleartimeout_timeoutid">clearTimeout(timeoutId)</a></li>
+<li><a href="#timers_es_setinterval_callback_delay_arg">setInterval(callback, delay, [arg], [...])</a></li>
+<li><a href="#timers_es_clearinterval_intervalid">clearInterval(intervalId)</a></li>
 </ul>
 </li>
 </ul>
@@ -71,36 +71,21 @@
           </div>
 
           <div id="apicontent">
-            <h1>Timers<span><a class="mark" href="#timers_timers" id="timers_timers">#</a></span></h1>
-<pre><code>Stability: 5 - Locked</code></pre>
-<p>All of the timer functions are globals.  You do not need to <code>require()</code>
-this module in order to use them.
+            <h1>Timer<span><a class="mark" href="#timers_es_timer" id="timers_es_timer">#</a></span></h1>
+<h2>setTimeout(callback, delay, [arg], [...])<span><a class="mark" href="#timers_es_settimeout_callback_delay_arg" id="timers_es_settimeout_callback_delay_arg">#</a></span></h2>
+<p>Para programar la ejecución de <code>callback</code> después de <code>delay</code> milisegundos. Devuelve un <code>timeoutId</code> para un posible uso con <code>clearTimeout()</code>. Opcionalmente, tu puedes también pasar argumentos al callback.
 
 </p>
-<h2>setTimeout(callback, delay, [arg], [...])<span><a class="mark" href="#timers_settimeout_callback_delay_arg" id="timers_settimeout_callback_delay_arg">#</a></span></h2>
-<p>To schedule execution of a one-time <code>callback</code> after <code>delay</code> milliseconds. Returns a
-<code>timeoutId</code> for possible use with <code>clearTimeout()</code>. Optionally you can
-also pass arguments to the callback.
+<h2>clearTimeout(timeoutId)<span><a class="mark" href="#timers_es_cleartimeout_timeoutid" id="timers_es_cleartimeout_timeoutid">#</a></span></h2>
+<p>Evita la ejecución de un callback por uno de sus disparadores.
 
 </p>
-<p>It is important to note that your callback will probably not be called in exactly
-<code>delay</code> milliseconds - Node.js makes no guarantees about the exact timing of when
-the callback will fire, nor of the ordering things will fire in. The callback will
-be called as close as possible to the time specified.
+<h2>setInterval(callback, delay, [arg], [...])<span><a class="mark" href="#timers_es_setinterval_callback_delay_arg" id="timers_es_setinterval_callback_delay_arg">#</a></span></h2>
+<p>Para programar la repetición repetitiva de un <code>callback</code> cada <code>delay</code> milisegundos. Devuelve un <code>intervalId</code> para un posible uso con <code>clearInterval()</code>. Opcionalmente, tu puedes también pasar argumentos al callback.
 
 </p>
-<h2>clearTimeout(timeoutId)<span><a class="mark" href="#timers_cleartimeout_timeoutid" id="timers_cleartimeout_timeoutid">#</a></span></h2>
-<p>Prevents a timeout from triggering.
-
-</p>
-<h2>setInterval(callback, delay, [arg], [...])<span><a class="mark" href="#timers_setinterval_callback_delay_arg" id="timers_setinterval_callback_delay_arg">#</a></span></h2>
-<p>To schedule the repeated execution of <code>callback</code> every <code>delay</code> milliseconds.
-Returns a <code>intervalId</code> for possible use with <code>clearInterval()</code>. Optionally
-you can also pass arguments to the callback.
-
-</p>
-<h2>clearInterval(intervalId)<span><a class="mark" href="#timers_clearinterval_intervalid" id="timers_clearinterval_intervalid">#</a></span></h2>
-<p>Stops a interval from triggering.
+<h2>clearInterval(intervalId)<span><a class="mark" href="#timers_es_clearinterval_intervalid" id="timers_es_clearinterval_intervalid">#</a></span></h2>
+<p>Evita la ejecución de un callback por uno de sus disparadores.
 </p>
 
           </div>

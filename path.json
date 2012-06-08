@@ -1,18 +1,18 @@
 {
-  "source": "doc/api/path.markdown",
+  "source": "doc/api/path-es.markdown",
   "modules": [
     {
       "textRaw": "Path",
       "name": "path",
       "stability": 3,
       "stabilityText": "Stable",
-      "desc": "<p>This module contains utilities for handling and transforming file\npaths.  Almost all these methods perform only string transformations.\nThe file system is not consulted to check whether paths are valid.\n\n</p>\n<p><code>path.exists</code> and <code>path.existsSync</code> are the exceptions, and should\nlogically be found in the fs module as they do access the file system.\n\n</p>\n<p>Use <code>require(&apos;path&apos;)</code> to use this module.  The following methods are provided:\n\n</p>\n",
+      "desc": "<p>Este módulo contiene utilidades para trabajar con rutas de fichero.\nCasi todos los métodos llevan sólo una transformaciones en el string.\nEl sistema de archivos no es consulta para comprobar si las rutas son válidos.\n\n</p>\n<p>Utilice <code>require(&apos;path&apos;)</code> para utilizarlo.  Los siguientes métodos son provistos:\n\n</p>\n",
       "methods": [
         {
           "textRaw": "path.normalize(p)",
           "type": "method",
           "name": "normalize",
-          "desc": "<p>Normalize a string path, taking care of <code>&apos;..&apos;</code> and <code>&apos;.&apos;</code> parts.\n\n</p>\n<p>When multiple slashes are found, they&apos;re replaced by a single one;\nwhen the path contains a trailing slash, it is preserved.\nOn windows backslashes are used. \n\n</p>\n<p>Example:\n\n</p>\n<pre><code>path.normalize(&apos;/foo/bar//baz/asdf/quux/..&apos;)\n// returns\n&apos;/foo/bar/baz/asdf&apos;</code></pre>\n",
+          "desc": "<p>Normaliza la cadena de texto de una ruta, se encarga de las partes <code>&apos;..&apos;</code> y <code>&apos;.&apos;</code>.\n\n</p>\n<p>Cuando se encuentra múltiples barras, se reemplazan por una sola;\ncuando la ruta acaba en barra, se conserva.\nEn windows se utilizan contrabarras.\n\n</p>\n<p>Example:\n\n</p>\n<pre><code>path.normalize(&apos;/foo/bar//baz/asdf/quux/..&apos;)\n// returns\n&apos;/foo/bar/baz/asdf&apos;</code></pre>\n",
           "signatures": [
             {
               "params": [
@@ -27,7 +27,7 @@
           "textRaw": "path.join([path1], [path2], [...])",
           "type": "method",
           "name": "join",
-          "desc": "<p>Join all arguments together and normalize the resulting path.\nNon-string arguments are ignored.\n\n</p>\n<p>Example:\n\n</p>\n<pre><code>path.join(&apos;/foo&apos;, &apos;bar&apos;, &apos;baz/asdf&apos;, &apos;quux&apos;, &apos;..&apos;)\n// returns\n&apos;/foo/bar/baz/asdf&apos;\n\npath.join(&apos;foo&apos;, {}, &apos;bar&apos;)\n// returns\n&apos;foo/bar&apos;</code></pre>\n",
+          "desc": "<p>Junta todos los argumentos y normaliza la ruta resultante.\nNon-string arguments are ignored.\n\n</p>\n<p>Example:\n\n</p>\n<pre><code>path.join(&apos;/foo&apos;, &apos;bar&apos;, &apos;baz/asdf&apos;, &apos;quux&apos;, &apos;..&apos;)\n// returns\n&apos;/foo/bar/baz/asdf&apos;\n\npath.join(&apos;foo&apos;, {}, &apos;bar&apos;)\n// returns\n&apos;foo/bar&apos;</code></pre>\n",
           "signatures": [
             {
               "params": [
@@ -51,7 +51,7 @@
           "textRaw": "path.resolve([from ...], to)",
           "type": "method",
           "name": "resolve",
-          "desc": "<p>Resolves <code>to</code> to an absolute path.\n\n</p>\n<p>If <code>to</code> isn&apos;t already absolute <code>from</code> arguments are prepended in right to left\norder, until an absolute path is found. If after using all <code>from</code> paths still\nno absolute path is found, the current working directory is used as well. The\nresulting path is normalized, and trailing slashes are removed unless the path \ngets resolved to the root directory. Non-string arguments are ignored.\n\n</p>\n<p>Another way to think of it is as a sequence of <code>cd</code> commands in a shell.\n\n</p>\n<pre><code>path.resolve(&apos;foo/bar&apos;, &apos;/tmp/file/&apos;, &apos;..&apos;, &apos;a/../subfile&apos;)</code></pre>\n<p>Is similar to:\n\n</p>\n<pre><code>cd foo/bar\ncd /tmp/file/\ncd ..\ncd a/../subfile\npwd</code></pre>\n<p>The difference is that the different paths don&apos;t need to exist and may also be\nfiles.\n\n</p>\n<p>Examples:\n\n</p>\n<pre><code>path.resolve(&apos;/foo/bar&apos;, &apos;./baz&apos;)\n// returns\n&apos;/foo/bar/baz&apos;\n\npath.resolve(&apos;/foo/bar&apos;, &apos;/tmp/file/&apos;)\n// returns\n&apos;/tmp/file&apos;\n\npath.resolve(&apos;wwwroot&apos;, &apos;static_files/png/&apos;, &apos;../gif/image.gif&apos;)\n// if currently in /home/myself/node, it returns\n&apos;/home/myself/node/wwwroot/static_files/gif/image.gif&apos;</code></pre>\n",
+          "desc": "<p>Resuelve <code>to</code> a una ruta absoluta.\n\n</p>\n<p>If <code>to</code> isn&apos;t already absolute <code>from</code> arguments are prepended in right to left\norder, until an absolute path is found. If after using all <code>from</code> paths still\nno absolute path is found, the current working directory is used as well. The\nresulting path is normalized, and trailing slashes are removed unless the path \ngets resolved to the root directory. Non-string arguments are ignored.\n\n</p>\n<p>Si <code>to</code> no es absoluta los argumentos <code>from</code> se anteponen ordenados de derecha a \nizquierda, hasta que se encuentra una ruta absoluta. Si después de usar todas las rutas de <code>from</code> \naún no se encuentra una ruta absoluta, también se utiliza el directorio actual de trabajo. La \nruta resultante se normaliza, y se eliminan las barras finales a no ser que \nse resuelva el directorio root.\n\n</p>\n<p>Otra manera de verlo es como una secuencia de comandos <code>cd</code> en un shell.\n\n</p>\n<pre><code>path.resolve(&apos;foo/bar&apos;, &apos;/tmp/file/&apos;, &apos;..&apos;, &apos;a/../subfile&apos;)</code></pre>\n<p>Es como:\n\n</p>\n<pre><code>cd foo/bar\ncd /tmp/file/\ncd ..\ncd a/../subfile\npwd</code></pre>\n<p>La diferencia es que las distintas rutas no necesitan existir e incluso pueden \nser ficheros.\n\n</p>\n<p>Ejemplos:\n\n</p>\n<pre><code>path.resolve(&apos;/foo/bar&apos;, &apos;./baz&apos;)\n// returns\n&apos;/foo/bar/baz&apos;\n\npath.resolve(&apos;/foo/bar&apos;, &apos;/tmp/file/&apos;)\n// returns\n&apos;/tmp/file&apos;\n\npath.resolve(&apos;wwwroot&apos;, &apos;static_files/png/&apos;, &apos;../gif/image.gif&apos;)\n// if currently in /home/myself/node, it returns\n&apos;/home/myself/node/wwwroot/static_files/gif/image.gif&apos;</code></pre>\n",
           "signatures": [
             {
               "params": [
@@ -70,7 +70,7 @@
           "textRaw": "path.relative(from, to)",
           "type": "method",
           "name": "relative",
-          "desc": "<p>Solve the relative path from <code>from</code> to <code>to</code>.\n\n</p>\n<p>At times we have two absolute paths, and we need to derive the relative\npath from one to the other.  This is actually the reverse transform of\n<code>path.resolve</code>, which means we see that:\n\n</p>\n<pre><code>path.resolve(from, path.relative(from, to)) == path.resolve(to)</code></pre>\n<p>Examples:\n\n</p>\n<pre><code>path.relative(&apos;C:\\\\orandea\\\\test\\\\aaa&apos;, &apos;C:\\\\orandea\\\\impl\\\\bbb&apos;)\n// returns\n&apos;..\\\\..\\\\impl\\\\bbb&apos;\n\npath.relative(&apos;/data/orandea/test/aaa&apos;, &apos;/data/orandea/impl/bbb&apos;)\n// returns\n&apos;../../impl/bbb&apos;</code></pre>\n",
+          "desc": "<p>Solve the relative path from <code>from</code> to <code>to</code>.\n\n</p>\n<p>At times we have two absolute paths, and we need to derive the relative\npath from one to the other.  This is actually the reverse transform of\n<code>path.resolve</code>, which means we see that:\n\n</p>\n<pre><code>path.resolve(from, path.relative(from, to)) == path.resolve(to)</code></pre>\n<p>Ejemplos:\n\n</p>\n<pre><code>path.relative(&apos;C:\\\\orandea\\\\test\\\\aaa&apos;, &apos;C:\\\\orandea\\\\impl\\\\bbb&apos;)\n// returns\n&apos;..\\\\..\\\\impl\\\\bbb&apos;\n\npath.relative(&apos;/data/orandea/test/aaa&apos;, &apos;/data/orandea/impl/bbb&apos;)\n// returns\n&apos;../../impl/bbb&apos;</code></pre>\n",
           "signatures": [
             {
               "params": [
@@ -88,7 +88,7 @@
           "textRaw": "path.dirname(p)",
           "type": "method",
           "name": "dirname",
-          "desc": "<p>Return the directory name of a path.  Similar to the Unix <code>dirname</code> command.\n\n</p>\n<p>Example:\n\n</p>\n<pre><code>path.dirname(&apos;/foo/bar/baz/asdf/quux&apos;)\n// returns\n&apos;/foo/bar/baz/asdf&apos;</code></pre>\n",
+          "desc": "<p>Devuelve el nombre de directorio de una ruta.  Semejante al comando de Unix <code>dirname</code>.\n\n</p>\n<p>Ejemplo:\n\n</p>\n<pre><code>path.dirname(&apos;/foo/bar/baz/asdf/quux&apos;)\n// returns\n&apos;/foo/bar/baz/asdf&apos;</code></pre>\n",
           "signatures": [
             {
               "params": [
@@ -103,7 +103,7 @@
           "textRaw": "path.basename(p, [ext])",
           "type": "method",
           "name": "basename",
-          "desc": "<p>Return the last portion of a path.  Similar to the Unix <code>basename</code> command.\n\n</p>\n<p>Example:\n\n</p>\n<pre><code>path.basename(&apos;/foo/bar/baz/asdf/quux.html&apos;)\n// returns\n&apos;quux.html&apos;\n\npath.basename(&apos;/foo/bar/baz/asdf/quux.html&apos;, &apos;.html&apos;)\n// returns\n&apos;quux&apos;</code></pre>\n",
+          "desc": "<p>Devuelve la última parte de una ruta.  Semejante al comando de Unix <code>basename</code>.\n\n</p>\n<p>Ejemplo:\n\n</p>\n<pre><code>path.basename(&apos;/foo/bar/baz/asdf/quux.html&apos;)\n// returns\n&apos;quux.html&apos;\n\npath.basename(&apos;/foo/bar/baz/asdf/quux.html&apos;, &apos;.html&apos;)\n// returns\n&apos;quux&apos;</code></pre>\n",
           "signatures": [
             {
               "params": [
@@ -122,41 +122,7 @@
           "textRaw": "path.extname(p)",
           "type": "method",
           "name": "extname",
-          "desc": "<p>Return the extension of the path, from the last &apos;.&apos; to end of string\nin the last portion of the path.  If there is no &apos;.&apos; in the last portion\nof the path or the first character of it is &apos;.&apos;, then it returns\nan empty string.  Examples:\n\n</p>\n<pre><code>path.extname(&apos;index.html&apos;)\n// returns\n&apos;.html&apos;\n\npath.extname(&apos;index.&apos;)\n// returns\n&apos;.&apos;\n\npath.extname(&apos;index&apos;)\n// returns\n&apos;&apos;</code></pre>\n",
-          "signatures": [
-            {
-              "params": [
-                {
-                  "name": "p"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "textRaw": "path.exists(p, [callback])",
-          "type": "method",
-          "name": "exists",
-          "desc": "<p>Test whether or not the given path exists by checking with the file system.\nThen call the <code>callback</code> argument with either true or false.  Example:\n\n</p>\n<pre><code>path.exists(&apos;/etc/passwd&apos;, function (exists) {\n  util.debug(exists ? &quot;it&apos;s there&quot; : &quot;no passwd!&quot;);\n});</code></pre>\n",
-          "signatures": [
-            {
-              "params": [
-                {
-                  "name": "p"
-                },
-                {
-                  "name": "callback",
-                  "optional": true
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "textRaw": "path.existsSync(p)",
-          "type": "method",
-          "name": "existsSync",
-          "desc": "<p>Synchronous version of <code>path.exists</code>.\n</p>\n",
+          "desc": "<p>Devuelve la extensión de la ruta.  Todo lo que hay después del último &apos;.&apos; \nen la última parte de la ruta. Si no hay &apos;.&apos; en la última parte de la ruta o el único \n&apos;.&apos; es el primer carácter, entonces devuelve un string vacío.  Ejemplos:\n\n</p>\n<pre><code>path.extname(&apos;index.html&apos;)\n// returns\n&apos;.html&apos;\n\npath.extname(&apos;index.&apos;)\n// returns\n&apos;.&apos;\n\npath.extname(&apos;index&apos;)\n// returns\n&apos;&apos;</code></pre>\n",
           "signatures": [
             {
               "params": [

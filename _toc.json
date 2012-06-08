@@ -1,5 +1,5 @@
 {
-  "source": "doc/api/_toc.markdown",
+  "source": "doc/api/_toc-es.markdown",
   "desc": [
     {
       "type": "list_start",
@@ -10,7 +10,7 @@
     },
     {
       "type": "text",
-      "text": "[About these Docs](documentation.html)"
+      "text": "[Acerca de la documentación](documentation.html)"
     },
     {
       "type": "list_item_end"
@@ -20,7 +20,7 @@
     },
     {
       "type": "text",
-      "text": "[Synopsis](synopsis.html)"
+      "text": "[Sinopsis](synopsis.html)"
     },
     {
       "type": "list_item_end"
@@ -280,7 +280,7 @@
     },
     {
       "type": "text",
-      "text": "[Child Processes](child_process.html)"
+      "text": "[Child Processes](child_processes.html)"
     },
     {
       "type": "list_item_end"
@@ -340,16 +340,6 @@
     },
     {
       "type": "text",
-      "text": "[Cluster](cluster.html)"
-    },
-    {
-      "type": "list_item_end"
-    },
-    {
-      "type": "list_item_start"
-    },
-    {
-      "type": "text",
       "text": "Appendixes"
     },
     {
@@ -361,7 +351,7 @@
     },
     {
       "type": "text",
-      "text": "[Appendix 1: Recommended Third-party Modules](appendix_1.html)"
+      "text": "[Appendix 1: Módulos Third-party recomendados](appendix_1.html)"
     },
     {
       "type": "list_item_end"

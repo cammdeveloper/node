@@ -1,5 +1,5 @@
 {
-  "source": "doc/api/vm.markdown",
+  "source": "doc/api/vm-es.markdown",
   "modules": [
     {
       "textRaw": "Executing JavaScript",
@@ -130,7 +130,7 @@
               "textRaw": "script.runInNewContext([sandbox])",
               "type": "method",
               "name": "runInNewContext",
-              "desc": "<p>Similar to <code>vm.runInNewContext</code> a method of a precompiled <code>Script</code> object.\n<code>script.runInNewContext</code> runs the code of <code>script</code> with <code>sandbox</code> as the global object and returns the result.\nRunning code does not have access to local scope. <code>sandbox</code> is optional.\n\n</p>\n<p>Example: compile code that increments a global variable and sets one, then execute this code multiple times.\nThese globals are contained in the sandbox.\n\n</p>\n<pre><code>var util = require(&apos;util&apos;),\n    vm = require(&apos;vm&apos;),\n    sandbox = {\n      animal: &apos;cat&apos;,\n      count: 2\n    };\n\nvar script = vm.createScript(&apos;count += 1; name = &quot;kitty&quot;&apos;, &apos;myfile.vm&apos;);\n\nfor (var i = 0; i &lt; 10 ; i += 1) {\n  script.runInNewContext(sandbox);\n}\n\nconsole.log(util.inspect(sandbox));\n\n// { animal: &apos;cat&apos;, count: 12, name: &apos;kitty&apos; }</code></pre>\n<p>Note that running untrusted code is a tricky business requiring great care.  To prevent accidental\nglobal variable leakage, <code>script.runInNewContext</code> is quite useful, but safely running untrusted code\nrequires a separate process.\n</p>\n",
+              "desc": "<p>Similar to <code>vm.runInNewContext</code> a method of a precompiled <code>Script</code> object.\n<code>script.runInNewContext</code> runs the code of <code>script</code> with <code>sandbox</code> as the global object and returns the result.\nRunning code does not have access to local scope. <code>sandbox</code> is optional.\n\n</p>\n<p>Example: compile code that increments a global variable and sets one, then execute this code multiple times.\nThese globals are contained in the sandbox.\n\n</p>\n<pre><code>var util = require(&apos;util&apos;),\n    vm = require(&apos;vm&apos;),\n    sandbox = {\n      animal: &apos;cat&apos;,\n      count: 2\n    };\n\nvar script = vm.createScript(&apos;count += 1; name = &quot;kitty&quot;&apos;, &apos;myfile.vm&apos;);\n\nfor (var i = 0; i &lt; 10 ; i += 1) {\n  script.runInNewContext(sandbox);\n}\n\nconsole.log(util.inspect(sandbox));\n\n// { animal: &apos;cat&apos;, count: 12, name: &apos;kitty&apos; }</code></pre>\n<p>Note that running untrusted code is a tricky business requiring great care.  To prevent accidental\nglobal variable leakage, <code>script.runInNewContext</code> is quite useful, but safely running untrusted code\nrequires a separate process.</p>\n",
               "signatures": [
                 {
                   "params": [

@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Synopsis Node.js v0.6.19 Manual &amp; Documentación</title>
+  <title>Sinopsis Node.js v0.6.19 Manual &amp; Documentación</title>
   <link rel="stylesheet" href="assets/style.css">
   <link rel="stylesheet" href="assets/sh.css">
-  <link rel="canonical" href="http://nodejs.org/api/synopsis.html">
+  <link rel="canonical" href="http://nodejs.org/api/synopsis-es.html">
 </head>
-<body class="alt apidoc" id="api-section-synopsis">
+<body class="alt apidoc" id="api-section-synopsis-es">
     <div id="intro" class="interior">
         <a href="http://www.nodejs.es/" title="Go back to the home page">
             <img id="logo" src="images/logo-light-es.png" alt="node.js">
@@ -50,7 +50,7 @@
               <p>
                 <a href="index.html" name="toc">Indice</a> |
                 <a href="all.html">Ver todo en una misma página</a> |
-                <a href="synopsis.json">Ver como JSON</a>
+                <a href="synopsis-es.json">Ver como JSON</a>
               </p>
             </div>
             <hr>
@@ -59,35 +59,34 @@
           <div id="toc">
             <h2>Tabla de Contenidos</h2>
             <ul>
-<li><a href="#synopsis_synopsis">Synopsis</a></li>
+<li><a href="#synopsis_es_sinopsis">Sinopsis</a></li>
 </ul>
 
           </div>
 
           <div id="apicontent">
-            <h1>Synopsis<span><a class="mark" href="#synopsis_synopsis" id="synopsis_synopsis">#</a></span></h1>
+            <h1>Sinopsis<span><a class="mark" href="#synopsis_es_sinopsis" id="synopsis_es_sinopsis">#</a></span></h1>
 <!--type=misc-->
 
-<p>An example of a <a href="http.html">web server</a> written with Node which responds with &apos;Hello
-World&apos;:
+<p>Un ejemplo de un <a href="http.html">servidor web</a> escrito en Node que responde con &apos;Hola
+mundo&apos;:
 
 </p>
 <pre><code>var http = require(&apos;http&apos;);
 
 http.createServer(function (request, response) {
   response.writeHead(200, {&apos;Content-Type&apos;: &apos;text/plain&apos;});
-  response.end(&apos;Hello World\n&apos;);
+  response.end(&apos;Hola mundo\n&apos;);
 }).listen(8124);
 
-console.log(&apos;Server running at http://127.0.0.1:8124/&apos;);</code></pre>
-<p>To run the server, put the code into a file called <code>example.js</code> and execute
-it with the node program
+console.log(&apos;Servidor ejecutándose en http://127.0.0.1:8124/&apos;);</code></pre>
+<p>Para ejecutar el servidor, copie el código en un fichero llamado <code>example.js</code> y ejecútelo
+con el programa node
 
 </p>
 <pre><code>&gt; node example.js
-Server running at http://127.0.0.1:8124/</code></pre>
-<p>All of the examples in the documentation can be run similarly.
-</p>
+Servidor ejecutándose en http://127.0.0.1:8124/</code></pre>
+<p>Todos los ejemplos en está documentación son ejecutados de manera similar.</p>
 
           </div>
         </div>

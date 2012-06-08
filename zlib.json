@@ -1,5 +1,5 @@
 {
-  "source": "doc/api/zlib.markdown",
+  "source": "doc/api/zlib-es.markdown",
   "modules": [
     {
       "textRaw": "Zlib",
@@ -24,7 +24,7 @@
           "textRaw": "Options",
           "name": "Options",
           "type": "misc",
-          "desc": "<p>Each class takes an options object.  All options are optional.  (The\nconvenience methods use the default settings for all options.)\n\n</p>\n<p>Note that some options are only\nrelevant when compressing, and are ignored by the decompression classes.\n\n</p>\n<ul>\n<li>chunkSize (default: 16*1024)</li>\n<li>windowBits</li>\n<li>level (compression only)</li>\n<li>memLevel (compression only)</li>\n<li>strategy (compression only)</li>\n</ul>\n<p>See the description of <code>deflateInit2</code> and <code>inflateInit2</code> at\n</p>\n<p><a href=\"http://zlib.net/manual.html#Advanced\">http://zlib.net/manual.html#Advanced</a> for more information on these.\n\n</p>\n"
+          "desc": "<p>Each class takes an options object.  All options are optional.  (The\nconvenience methods use the default settings for all options.)\n\n</p>\n<p>Note that some options are only\nrelevant when compressing, and are ignored by the decompression classes.\n\n</p>\n<ul>\n<li>chunkSize (default: 16*1024)</li>\n<li>windowBits</li>\n<li>level (compression only)</li>\n<li>memLevel (compression only)</li>\n<li>strategy (compression only)</li>\n<li>dictionary (deflate/inflate only, empty dictionary by default)</li>\n</ul>\n<p>See the description of <code>deflateInit2</code> and <code>inflateInit2</code> at\n</p>\n<p><a href=\"http://zlib.net/manual.html#Advanced\">http://zlib.net/manual.html#Advanced</a> for more information on these.\n\n</p>\n"
         },
         {
           "textRaw": "Memory Usage Tuning",

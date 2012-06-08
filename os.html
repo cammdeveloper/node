@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>os Node.js v0.6.19 Manual &amp; Documentación</title>
+  <title>Módulo os Node.js v0.6.19 Manual &amp; Documentación</title>
   <link rel="stylesheet" href="assets/style.css">
   <link rel="stylesheet" href="assets/sh.css">
-  <link rel="canonical" href="http://nodejs.org/api/os.html">
+  <link rel="canonical" href="http://nodejs.org/api/os-es.html">
 </head>
-<body class="alt apidoc" id="api-section-os">
+<body class="alt apidoc" id="api-section-os-es">
     <div id="intro" class="interior">
         <a href="http://www.nodejs.es/" title="Go back to the home page">
             <img id="logo" src="images/logo-light-es.png" alt="node.js">
@@ -50,7 +50,7 @@
               <p>
                 <a href="index.html" name="toc">Indice</a> |
                 <a href="all.html">Ver todo en una misma página</a> |
-                <a href="os.json">Ver como JSON</a>
+                <a href="os-es.json">Ver como JSON</a>
               </p>
             </div>
             <hr>
@@ -59,18 +59,15 @@
           <div id="toc">
             <h2>Tabla de Contenidos</h2>
             <ul>
-<li><a href="#os_os">os</a><ul>
-<li><a href="#os_os_hostname">os.hostname()</a></li>
-<li><a href="#os_os_type">os.type()</a></li>
-<li><a href="#os_os_platform">os.platform()</a></li>
-<li><a href="#os_os_arch">os.arch()</a></li>
-<li><a href="#os_os_release">os.release()</a></li>
-<li><a href="#os_os_uptime">os.uptime()</a></li>
-<li><a href="#os_os_loadavg">os.loadavg()</a></li>
-<li><a href="#os_os_totalmem">os.totalmem()</a></li>
-<li><a href="#os_os_freemem">os.freemem()</a></li>
-<li><a href="#os_os_cpus">os.cpus()</a></li>
-<li><a href="#os_os_networkinterfaces">os.networkInterfaces()</a></li>
+<li><a href="#os_es_m_dulo_os">Módulo os</a><ul>
+<li><a href="#os_es_os_hostname">os.hostname()</a></li>
+<li><a href="#os_es_os_type">os.type()</a></li>
+<li><a href="#os_es_os_release">os.release()</a></li>
+<li><a href="#os_es_os_uptime">os.uptime()</a></li>
+<li><a href="#os_es_os_loadavg">os.loadavg()</a></li>
+<li><a href="#os_es_os_totalmem">os.totalmem()</a></li>
+<li><a href="#os_es_os_freemem">os.freemem()</a></li>
+<li><a href="#os_es_os_cpus">os.cpus()</a></li>
 </ul>
 </li>
 </ul>
@@ -78,55 +75,43 @@
           </div>
 
           <div id="apicontent">
-            <h1>os<span><a class="mark" href="#os_os" id="os_os">#</a></span></h1>
-<pre><code>Stability: 4 - API Frozen</code></pre>
-<p>Provides a few basic operating-system related utility functions.
+            <h1>Módulo os<span><a class="mark" href="#os_es_m_dulo_os" id="os_es_m_dulo_os">#</a></span></h1>
+<p>Utilice <code>require(&apos;os&apos;)</code> para acceder al módulo.
 
 </p>
-<p>Use <code>require(&apos;os&apos;)</code> to access this module.
+<h2>os.hostname()<span><a class="mark" href="#os_es_os_hostname" id="os_es_os_hostname">#</a></span></h2>
+<p>Devuelve el hostname del sistema operativo.
 
 </p>
-<h2>os.hostname()<span><a class="mark" href="#os_os_hostname" id="os_os_hostname">#</a></span></h2>
-<p>Returns the hostname of the operating system.
+<h2>os.type()<span><a class="mark" href="#os_es_os_type" id="os_es_os_type">#</a></span></h2>
+<p>Devuelve el nombre del sistema operativo.
 
 </p>
-<h2>os.type()<span><a class="mark" href="#os_os_type" id="os_os_type">#</a></span></h2>
-<p>Returns the operating system name.
+<h2>os.release()<span><a class="mark" href="#os_es_os_release" id="os_es_os_release">#</a></span></h2>
+<p>Devuelve la versión del sistema operativo.
 
 </p>
-<h2>os.platform()<span><a class="mark" href="#os_os_platform" id="os_os_platform">#</a></span></h2>
-<p>Returns the operating system platform.
+<h2>os.uptime()<span><a class="mark" href="#os_es_os_uptime" id="os_es_os_uptime">#</a></span></h2>
+<p>Devuelve el uptime en segundos del sistema.
 
 </p>
-<h2>os.arch()<span><a class="mark" href="#os_os_arch" id="os_os_arch">#</a></span></h2>
-<p>Returns the operating system CPU architecture.
+<h2>os.loadavg()<span><a class="mark" href="#os_es_os_loadavg" id="os_es_os_loadavg">#</a></span></h2>
+<p>Devuelve un array conteniendo los promedios en 1, 5, y 15 minutos de carga.
 
 </p>
-<h2>os.release()<span><a class="mark" href="#os_os_release" id="os_os_release">#</a></span></h2>
-<p>Returns the operating system release.
+<h2>os.totalmem()<span><a class="mark" href="#os_es_os_totalmem" id="os_es_os_totalmem">#</a></span></h2>
+<p>Devuelve la cantidad total en memoria del sistema en bytes
 
 </p>
-<h2>os.uptime()<span><a class="mark" href="#os_os_uptime" id="os_os_uptime">#</a></span></h2>
-<p>Returns the system uptime in seconds.
+<h2>os.freemem()<span><a class="mark" href="#os_es_os_freemem" id="os_es_os_freemem">#</a></span></h2>
+<p>Devuelve la cantidad de memoria libre del sistema en bytes.
 
 </p>
-<h2>os.loadavg()<span><a class="mark" href="#os_os_loadavg" id="os_os_loadavg">#</a></span></h2>
-<p>Returns an array containing the 1, 5, and 15 minute load averages.
+<h2>os.cpus()<span><a class="mark" href="#os_es_os_cpus" id="os_es_os_cpus">#</a></span></h2>
+<p>Devuelve un array de objetos que contiene información acerca de cada CPU/core instalado: modelo, velocidad (en MHz), y los tiempos (un objeto que contiene el número de CPU usado por: usuario, nice, sys, idle, e irq).
 
 </p>
-<h2>os.totalmem()<span><a class="mark" href="#os_os_totalmem" id="os_os_totalmem">#</a></span></h2>
-<p>Returns the total amount of system memory in bytes.
-
-</p>
-<h2>os.freemem()<span><a class="mark" href="#os_os_freemem" id="os_os_freemem">#</a></span></h2>
-<p>Returns the amount of free system memory in bytes.
-
-</p>
-<h2>os.cpus()<span><a class="mark" href="#os_os_cpus" id="os_os_cpus">#</a></span></h2>
-<p>Returns an array of objects containing information about each CPU/core installed: model, speed (in MHz), and times (an object containing the number of CPU ticks spent in: user, nice, sys, idle, and irq).
-
-</p>
-<p>Example inspection of os.cpus:
+<p>Ejemplo de inspección de os.cpus:
 
 </p>
 <pre><code>[ { model: &apos;Intel(R) Core(TM) i7 CPU         860  @ 2.80GHz&apos;,
@@ -193,21 +178,6 @@
        sys: 34920,
        idle: 1072572010,
        irq: 30 } } ]</code></pre>
-<h2>os.networkInterfaces()<span><a class="mark" href="#os_os_networkinterfaces" id="os_os_networkinterfaces">#</a></span></h2>
-<p>Get a list of network interfaces:
-
-</p>
-<pre><code>{ lo0: 
-   [ { address: &apos;::1&apos;, family: &apos;IPv6&apos;, internal: true },
-     { address: &apos;fe80::1&apos;, family: &apos;IPv6&apos;, internal: true },
-     { address: &apos;127.0.0.1&apos;, family: &apos;IPv4&apos;, internal: true } ],
-  en1: 
-   [ { address: &apos;fe80::cabc:c8ff:feef:f996&apos;, family: &apos;IPv6&apos;,
-       internal: false },
-     { address: &apos;10.0.1.123&apos;, family: &apos;IPv4&apos;, internal: false } ],
-  vmnet1: [ { address: &apos;10.99.99.254&apos;, family: &apos;IPv4&apos;, internal: false } ],
-  vmnet8: [ { address: &apos;10.88.88.1&apos;, family: &apos;IPv4&apos;, internal: false } ],
-  ppp0: [ { address: &apos;10.2.0.231&apos;, family: &apos;IPv4&apos;, internal: false } ] }</code></pre>
 
           </div>
         </div>

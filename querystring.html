@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Query String Node.js v0.6.19 Manual &amp; Documentación</title>
+  <title>Cadena de consulta Node.js v0.6.19 Manual &amp; Documentación</title>
   <link rel="stylesheet" href="assets/style.css">
   <link rel="stylesheet" href="assets/sh.css">
-  <link rel="canonical" href="http://nodejs.org/api/querystring.html">
+  <link rel="canonical" href="http://nodejs.org/api/querystring-es.html">
 </head>
-<body class="alt apidoc" id="api-section-querystring">
+<body class="alt apidoc" id="api-section-querystring-es">
     <div id="intro" class="interior">
         <a href="http://www.nodejs.es/" title="Go back to the home page">
             <img id="logo" src="images/logo-light-es.png" alt="node.js">
@@ -50,7 +50,7 @@
               <p>
                 <a href="index.html" name="toc">Indice</a> |
                 <a href="all.html">Ver todo en una misma página</a> |
-                <a href="querystring.json">Ver como JSON</a>
+                <a href="querystring-es.json">Ver como JSON</a>
               </p>
             </div>
             <hr>
@@ -59,11 +59,11 @@
           <div id="toc">
             <h2>Tabla de Contenidos</h2>
             <ul>
-<li><a href="#querystring_query_string">Query String</a><ul>
-<li><a href="#querystring_querystring_stringify_obj_sep_eq">querystring.stringify(obj, [sep], [eq])</a></li>
-<li><a href="#querystring_querystring_parse_str_sep_eq">querystring.parse(str, [sep], [eq])</a></li>
-<li><a href="#querystring_querystring_escape">querystring.escape</a></li>
-<li><a href="#querystring_querystring_unescape">querystring.unescape</a></li>
+<li><a href="#querystring_es_cadena_de_consulta">Cadena de consulta</a><ul>
+<li><a href="#querystring_es_querystring_stringify_obj_sep_eq">querystring.stringify(obj, sep=&apos;&amp;&apos;, eq=&apos;=&apos;)</a></li>
+<li><a href="#querystring_es_querystring_parse_str_sep_eq">querystring.parse(str, sep=&apos;&amp;&apos;, eq=&apos;=&apos;)</a></li>
+<li><a href="#querystring_es_querystring_escape">querystring.escape</a></li>
+<li><a href="#querystring_es_querystring_unescape">querystring.unescape</a></li>
 </ul>
 </li>
 </ul>
@@ -71,50 +71,45 @@
           </div>
 
           <div id="apicontent">
-            <h1>Query String<span><a class="mark" href="#querystring_query_string" id="querystring_query_string">#</a></span></h1>
-<pre><code>Stability: 3 - Stable</code></pre>
-<!--name=querystring-->
-
-<p>This module provides utilities for dealing with query strings.
-It provides the following methods:
+            <h1>Cadena de consulta<span><a class="mark" href="#querystring_es_cadena_de_consulta" id="querystring_es_cadena_de_consulta">#</a></span></h1>
+<p>Este módulo provee de utilidades para el tratamiento de cadenas de consultas.
+Se ofrece los siguientes métodos:
 
 </p>
-<h2>querystring.stringify(obj, [sep], [eq])<span><a class="mark" href="#querystring_querystring_stringify_obj_sep_eq" id="querystring_querystring_stringify_obj_sep_eq">#</a></span></h2>
-<p>Serialize an object to a query string.
-Optionally override the default separator (<code>&apos;&amp;&apos;</code>) and assignment (<code>&apos;=&apos;</code>)
-characters.
+<h2>querystring.stringify(obj, sep=&apos;&amp;&apos;, eq=&apos;=&apos;)<span><a class="mark" href="#querystring_es_querystring_stringify_obj_sep_eq" id="querystring_es_querystring_stringify_obj_sep_eq">#</a></span></h2>
+<p>Serializa un objeto a una cadena de consulta.
+Opcionalmente reemplaza el separador por omisión y la asignación de caracteres.
 
 </p>
-<p>Example:
+<p>Ejemplo:
 
 </p>
-<pre><code>querystring.stringify({ foo: &apos;bar&apos;, baz: [&apos;qux&apos;, &apos;quux&apos;], corge: &apos;&apos; })
+<pre><code>querystring.stringify({foo: &apos;bar&apos;})
+// devuelve
+&apos;foo=bar&apos;
+
+querystring.stringify({foo: &apos;bar&apos;, baz: &apos;bob&apos;}, &apos;;&apos;, &apos;:&apos;)
+// devuelve
+&apos;foo:bar;baz:bob&apos;</code></pre>
+<h2>querystring.parse(str, sep=&apos;&amp;&apos;, eq=&apos;=&apos;)<span><a class="mark" href="#querystring_es_querystring_parse_str_sep_eq" id="querystring_es_querystring_parse_str_sep_eq">#</a></span></h2>
+<p>Deserializa una cadena de consulta a un objeto.
+Opcionamente puede reemplazar el separador por omisión y asignar caracteres.
+
+</p>
+<p>Ejemplo:
+
+</p>
+<pre><code>querystring.parse(&apos;a=b&amp;b=c&apos;)
 // returns
-&apos;foo=bar&amp;baz=qux&amp;baz=quux&amp;corge=&apos;
-
-querystring.stringify({foo: &apos;bar&apos;, baz: &apos;qux&apos;}, &apos;;&apos;, &apos;:&apos;)
-// returns
-&apos;foo:bar;baz:qux&apos;</code></pre>
-<h2>querystring.parse(str, [sep], [eq])<span><a class="mark" href="#querystring_querystring_parse_str_sep_eq" id="querystring_querystring_parse_str_sep_eq">#</a></span></h2>
-<p>Deserialize a query string to an object.
-Optionally override the default separator (<code>&apos;&amp;&apos;</code>) and assignment (<code>&apos;=&apos;</code>)
-characters.
+{ a: &apos;b&apos;, b: &apos;c&apos; }</code></pre>
+<h2>querystring.escape<span><a class="mark" href="#querystring_es_querystring_escape" id="querystring_es_querystring_escape">#</a></span></h2>
+<p>La función escape es usada por <code>querystring.stringify</code>,
+para proporcionar reemplazos si es necesario.
 
 </p>
-<p>Example:
-
-</p>
-<pre><code>querystring.parse(&apos;foo=bar&amp;baz=qux&amp;baz=quux&amp;corge&apos;)
-// returns
-{ foo: &apos;bar&apos;, baz: [&apos;qux&apos;, &apos;quux&apos;], corge: &apos;&apos; }</code></pre>
-<h2>querystring.escape<span><a class="mark" href="#querystring_querystring_escape" id="querystring_querystring_escape">#</a></span></h2>
-<p>The escape function used by <code>querystring.stringify</code>,
-provided so that it could be overridden if necessary.
-
-</p>
-<h2>querystring.unescape<span><a class="mark" href="#querystring_querystring_unescape" id="querystring_querystring_unescape">#</a></span></h2>
-<p>The unescape function used by <code>querystring.parse</code>,
-provided so that it could be overridden if necessary.
+<h2>querystring.unescape<span><a class="mark" href="#querystring_es_querystring_unescape" id="querystring_es_querystring_unescape">#</a></span></h2>
+<p>La función unescape es usada por <code>querystring.parse</code>,
+para proporcionar reemplazos  si es necesario.
 </p>
 
           </div>

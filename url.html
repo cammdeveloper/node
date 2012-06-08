@@ -5,9 +5,9 @@
   <title>URL Node.js v0.6.19 Manual &amp; Documentación</title>
   <link rel="stylesheet" href="assets/style.css">
   <link rel="stylesheet" href="assets/sh.css">
-  <link rel="canonical" href="http://nodejs.org/api/url.html">
+  <link rel="canonical" href="http://nodejs.org/api/url-es.html">
 </head>
-<body class="alt apidoc" id="api-section-url">
+<body class="alt apidoc" id="api-section-url-es">
     <div id="intro" class="interior">
         <a href="http://www.nodejs.es/" title="Go back to the home page">
             <img id="logo" src="images/logo-light-es.png" alt="node.js">
@@ -50,7 +50,7 @@
               <p>
                 <a href="index.html" name="toc">Indice</a> |
                 <a href="all.html">Ver todo en una misma página</a> |
-                <a href="url.json">Ver como JSON</a>
+                <a href="url-es.json">Ver como JSON</a>
               </p>
             </div>
             <hr>
@@ -59,10 +59,12 @@
           <div id="toc">
             <h2>Tabla de Contenidos</h2>
             <ul>
-<li><a href="#url_url">URL</a><ul>
-<li><a href="#url_url_parse_urlstr_parsequerystring_slashesdenotehost">url.parse(urlStr, [parseQueryString], [slashesDenoteHost])</a></li>
-<li><a href="#url_url_format_urlobj">url.format(urlObj)</a></li>
-<li><a href="#url_url_resolve_from_to">url.resolve(from, to)</a></li>
+<li><a href="#url_es_url">URL</a><ul>
+<li><a href="#url_es_url_parse_urlstr_parsequerystring_slashesdenotehost">url.parse(urlStr, [parseQueryString], [slashesDenoteHost])</a><ul>
+<li><a href="#url_es_url_format_urlobj">url.format(urlObj)</a></li>
+</ul>
+</li>
+<li><a href="#url_es_url_resolve_from_to">url.resolve(from, to)</a></li>
 </ul>
 </li>
 </ul>
@@ -70,102 +72,65 @@
           </div>
 
           <div id="apicontent">
-            <h1>URL<span><a class="mark" href="#url_url" id="url_url">#</a></span></h1>
-<pre><code>Stability: 3 - Stable</code></pre>
-<p>This module has utilities for URL resolution and parsing.
-Call <code>require(&apos;url&apos;)</code> to use it.
+            <h1>URL<span><a class="mark" href="#url_es_url" id="url_es_url">#</a></span></h1>
+<p>Este módulo posee utilidades para la resolución y análisis de URL.
+Para usarlo utilice <code>require(&apos;url&apos;)</code>.
 
 </p>
-<p>Parsed URL objects have some or all of the following fields, depending on
-whether or not they exist in the URL string. Any parts that are not in the URL
-string will not be in the parsed object. Examples are shown for the URL
+<p>Analizar objetos URL tiene algo o mucho de los siguientes campos, dependiendo de
+que exista o no en la cadena de URL. Las partes que no están en la cadena de URL
+no se analizarán y no estarán presente en el objeto. Un ejemplo para la siguiente URL
 
 </p>
 <p><code>&apos;http://user:pass@host.com:8080/p/a/t/h?query=string#hash&apos;</code>
 
 </p>
 <ul>
-<li><p><code>href</code>: The full URL that was originally parsed. Both the protocol and host are lowercased.</p>
-<p>  Example: <code>&apos;http://user:pass@host.com:8080/p/a/t/h?query=string#hash&apos;</code></p>
+<li><p><code>href</code>: La dirección URL ha sido analizada desde un principio.</p>
+<p>Ejemplo: <code>&apos;http://user:pass@host.com:8080/p/a/t/h?query=string#hash&apos;</code></p>
 </li>
-<li><p><code>protocol</code>: The request protocol, lowercased.</p>
-<p>  Example: <code>&apos;http:&apos;</code></p>
+<li><p><code>protocol</code>: El protocolo de petición (request).</p>
+<p>Ejemplo: <code>&apos;http:&apos;</code></p>
 </li>
-<li><p><code>host</code>: The full lowercased host portion of the URL, including port
-information.</p>
-<p>  Example: <code>&apos;host.com:8080&apos;</code></p>
+<li><p><code>host</code>: Una parte del host de la URL completa, incluyendo la información del puerto y autentificación.</p>
+<p>Ejemplo: <code>&apos;user:pass@host.com:8080&apos;</code></p>
 </li>
-<li><p><code>auth</code>: The authentication information portion of a URL.</p>
-<p>  Example: <code>&apos;user:pass&apos;</code></p>
+<li><p><code>auth</code>: Parte de la información de autentificación de la URL.</p>
+<p>Ejemplo: <code>&apos;user:pass&apos;</code></p>
 </li>
-<li><p><code>hostname</code>: Just the lowercased hostname portion of the host.</p>
-<p>  Example: <code>&apos;host.com&apos;</code></p>
+<li><p><code>hostname</code>: Sólo la parte del nombre del host.</p>
+<p>Ejemplo: <code>&apos;host.com&apos;</code></p>
 </li>
-<li><p><code>port</code>: The port number portion of the host.</p>
-<p>  Example: <code>&apos;8080&apos;</code></p>
+<li><p><code>port</code>: El número de puerto del host.</p>
+<p>Ejemplo: <code>&apos;8080&apos;</code></p>
 </li>
-<li><p><code>pathname</code>: The path section of the URL, that comes after the host and
-before the query, including the initial slash if present.</p>
-<p>  Example: <code>&apos;/p/a/t/h&apos;</code></p>
+<li><p><code>pathname</code>: La sección de la ruta de la URL, que viene después del host y antes de la consulta, incluyendo la barra inicial si está presente.</p>
+<p>Ejemplo: <code>&apos;/p/a/t/h&apos;</code></p>
 </li>
-<li><p><code>search</code>: The &apos;query string&apos; portion of the URL, including the leading
-question mark.</p>
-<p>  Example: <code>&apos;?query=string&apos;</code></p>
+<li><p><code>search</code>: La parte de &apos;cadena de consulta&apos; de la URL, incluyendo el signo de interrogación principal.</p>
+<p>Ejemplo: <code>&apos;?query=string&apos;</code></p>
 </li>
-<li><p><code>path</code>: Concatenation of <code>pathname</code> and <code>search</code>.</p>
-<p>  Example: <code>&apos;/p/a/t/h?query=string&apos;</code></p>
+<li><p><code>query</code>: La parte de cualquier &apos;parámetro&apos; de la cadena de consulta, o un parser de un objeto de cadena de consulta.</p>
+<p>Ejemplo: <code>&apos;query=string&apos;</code> o <code>{&apos;query&apos;:&apos;string&apos;}</code></p>
 </li>
-<li><p><code>query</code>: Either the &apos;params&apos; portion of the query string, or a
-querystring-parsed object.</p>
-<p>  Example: <code>&apos;query=string&apos;</code> or <code>{&apos;query&apos;:&apos;string&apos;}</code></p>
-</li>
-<li><p><code>hash</code>: The &apos;fragment&apos; portion of the URL including the pound-sign.</p>
-<p>  Example: <code>&apos;#hash&apos;</code></p>
+<li><p><code>hash</code>: La parte del &apos;fragmento&apos; de la  URL incluyendo el símbolo de la libra.</p>
+<p>Ejemplo: <code>&apos;#hash&apos;</code></p>
 </li>
 </ul>
-<p>The following methods are provided by the URL module:
+<p>Los siguientes métodos son proporcionados por el módulo URL:
 
 </p>
-<h2>url.parse(urlStr, [parseQueryString], [slashesDenoteHost])<span><a class="mark" href="#url_url_parse_urlstr_parsequerystring_slashesdenotehost" id="url_url_parse_urlstr_parsequerystring_slashesdenotehost">#</a></span></h2>
-<p>Take a URL string, and return an object.
+<h2>url.parse(urlStr, [parseQueryString], [slashesDenoteHost])<span><a class="mark" href="#url_es_url_parse_urlstr_parsequerystring_slashesdenotehost" id="url_es_url_parse_urlstr_parsequerystring_slashesdenotehost">#</a></span></h2>
+<p>Toma una cadena de la URL, y la devuelve como un objeto.  Devuelve <code>true</code> como el segundo argumento  a
+la cadena de consulta usando el módulo <code>querystring</code>.
 
 </p>
-<p>Pass <code>true</code> as the second argument to also parse
-the query string using the <code>querystring</code> module.
-Defaults to <code>false</code>.
+<h3>url.format(urlObj)<span><a class="mark" href="#url_es_url_format_urlobj" id="url_es_url_format_urlobj">#</a></span></h3>
+<p>Toma un parser de un objeto URL, y devuelve una cadena de URL.
 
 </p>
-<p>Pass <code>true</code> as the third argument to treat <code>//foo/bar</code> as
-<code>{ host: &apos;foo&apos;, pathname: &apos;/bar&apos; }</code> rather than
-<code>{ pathname: &apos;//foo/bar&apos; }</code>. Defaults to <code>false</code>.
-
-</p>
-<h2>url.format(urlObj)<span><a class="mark" href="#url_url_format_urlobj" id="url_url_format_urlobj">#</a></span></h2>
-<p>Take a parsed URL object, and return a formatted URL string.
-
-</p>
-<ul>
-<li><code>href</code> will be ignored.</li>
-<li><code>protocol</code>is treated the same with or without the trailing <code>:</code> (colon).<ul>
-<li>The protocols <code>http</code>, <code>https</code>, <code>ftp</code>, <code>gopher</code>, <code>file</code> will be
-postfixed with <code>://</code> (colon-slash-slash).</li>
-<li>All other protocols <code>mailto</code>, <code>xmpp</code>, <code>aim</code>, <code>sftp</code>, <code>foo</code>, etc will
-be postfixed with <code>:</code> (colon)</li>
-</ul>
-</li>
-<li><code>auth</code> will be used if present.</li>
-<li><code>hostname</code> will only be used if <code>host</code> is absent.</li>
-<li><code>port</code> will only be used if <code>host</code> is absent.</li>
-<li><code>host</code> will be used in place of <code>auth</code>, <code>hostname</code>, and <code>port</code></li>
-<li><code>pathname</code> is treated the same with or without the leading <code>/</code> (slash)</li>
-<li><code>search</code> will be used in place of <code>query</code></li>
-<li><code>query</code> (object; see <code>querystring</code>) will only be used if <code>search</code> is absent.</li>
-<li><code>search</code> is treated the same with or without the leading <code>?</code> (question mark)</li>
-<li><code>hash</code> is treated the same with or without the leading <code>#</code> (pound sign, anchor)</li>
-</ul>
-<h2>url.resolve(from, to)<span><a class="mark" href="#url_url_resolve_from_to" id="url_url_resolve_from_to">#</a></span></h2>
-<p>Take a base URL, and a href URL, and resolve them as a browser would for
-an anchor tag.
+<h2>url.resolve(from, to)<span><a class="mark" href="#url_es_url_resolve_from_to" id="url_es_url_resolve_from_to">#</a></span></h2>
+<p>Toma una URL base, y el atributo href de la URL, y lo determina como un navegador sería la etiqueta anchor (enlace).
 </p>
 
           </div>

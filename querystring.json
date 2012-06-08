@@ -1,18 +1,16 @@
 {
-  "source": "doc/api/querystring.markdown",
+  "source": "doc/api/querystring-es.markdown",
   "modules": [
     {
-      "textRaw": "Query String",
-      "name": "querystring",
-      "stability": 3,
-      "stabilityText": "Stable",
-      "desc": "<p>This module provides utilities for dealing with query strings.\nIt provides the following methods:\n\n</p>\n",
+      "textRaw": "Cadena de consulta",
+      "name": "cadena_de_consulta",
+      "desc": "<p>Este módulo provee de utilidades para el tratamiento de cadenas de consultas.\nSe ofrece los siguientes métodos:\n\n</p>\n",
       "methods": [
         {
-          "textRaw": "querystring.stringify(obj, [sep], [eq])",
+          "textRaw": "querystring.stringify(obj, sep='&', eq='=')",
           "type": "method",
           "name": "stringify",
-          "desc": "<p>Serialize an object to a query string.\nOptionally override the default separator (<code>&apos;&amp;&apos;</code>) and assignment (<code>&apos;=&apos;</code>)\ncharacters.\n\n</p>\n<p>Example:\n\n</p>\n<pre><code>querystring.stringify({ foo: &apos;bar&apos;, baz: [&apos;qux&apos;, &apos;quux&apos;], corge: &apos;&apos; })\n// returns\n&apos;foo=bar&amp;baz=qux&amp;baz=quux&amp;corge=&apos;\n\nquerystring.stringify({foo: &apos;bar&apos;, baz: &apos;qux&apos;}, &apos;;&apos;, &apos;:&apos;)\n// returns\n&apos;foo:bar;baz:qux&apos;</code></pre>\n",
+          "desc": "<p>Serializa un objeto a una cadena de consulta.\nOpcionalmente reemplaza el separador por omisión y la asignación de caracteres.\n\n</p>\n<p>Ejemplo:\n\n</p>\n<pre><code>querystring.stringify({foo: &apos;bar&apos;})\n// devuelve\n&apos;foo=bar&apos;\n\nquerystring.stringify({foo: &apos;bar&apos;, baz: &apos;bob&apos;}, &apos;;&apos;, &apos;:&apos;)\n// devuelve\n&apos;foo:bar;baz:bob&apos;</code></pre>\n",
           "signatures": [
             {
               "params": [
@@ -21,21 +19,21 @@
                 },
                 {
                   "name": "sep",
-                  "optional": true
+                  "default": "'&'"
                 },
                 {
                   "name": "eq",
-                  "optional": true
+                  "default": "'='"
                 }
               ]
             }
           ]
         },
         {
-          "textRaw": "querystring.parse(str, [sep], [eq])",
+          "textRaw": "querystring.parse(str, sep='&', eq='=')",
           "type": "method",
           "name": "parse",
-          "desc": "<p>Deserialize a query string to an object.\nOptionally override the default separator (<code>&apos;&amp;&apos;</code>) and assignment (<code>&apos;=&apos;</code>)\ncharacters.\n\n</p>\n<p>Example:\n\n</p>\n<pre><code>querystring.parse(&apos;foo=bar&amp;baz=qux&amp;baz=quux&amp;corge&apos;)\n// returns\n{ foo: &apos;bar&apos;, baz: [&apos;qux&apos;, &apos;quux&apos;], corge: &apos;&apos; }</code></pre>\n",
+          "desc": "<p>Deserializa una cadena de consulta a un objeto.\nOpcionamente puede reemplazar el separador por omisión y asignar caracteres.\n\n</p>\n<p>Ejemplo:\n\n</p>\n<pre><code>querystring.parse(&apos;a=b&amp;b=c&apos;)\n// returns\n{ a: &apos;b&apos;, b: &apos;c&apos; }</code></pre>\n",
           "signatures": [
             {
               "params": [
@@ -44,11 +42,11 @@
                 },
                 {
                   "name": "sep",
-                  "optional": true
+                  "default": "'&'"
                 },
                 {
                   "name": "eq",
-                  "optional": true
+                  "default": "'='"
                 }
               ]
             }
@@ -59,16 +57,16 @@
         {
           "textRaw": "querystring.escape",
           "name": "escape",
-          "desc": "<p>The escape function used by <code>querystring.stringify</code>,\nprovided so that it could be overridden if necessary.\n\n</p>\n"
+          "desc": "<p>La función escape es usada por <code>querystring.stringify</code>,\npara proporcionar reemplazos si es necesario.\n\n</p>\n"
         },
         {
           "textRaw": "querystring.unescape",
           "name": "unescape",
-          "desc": "<p>The unescape function used by <code>querystring.parse</code>,\nprovided so that it could be overridden if necessary.\n</p>\n"
+          "desc": "<p>La función unescape es usada por <code>querystring.parse</code>,\npara proporcionar reemplazos  si es necesario.\n</p>\n"
         }
       ],
       "type": "module",
-      "displayName": "querystring"
+      "displayName": "Cadena de consulta"
     }
   ]
 }

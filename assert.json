@@ -1,18 +1,16 @@
 {
-  "source": "doc/api/assert.markdown",
+  "source": "doc/api/assert-es.markdown",
   "modules": [
     {
       "textRaw": "Assert",
       "name": "assert",
-      "stability": 5,
-      "stabilityText": "Locked",
-      "desc": "<p>This module is used for writing unit tests for your applications, you can\naccess it with <code>require(&apos;assert&apos;)</code>.\n\n</p>\n",
+      "desc": "<p>Este módulo es usado para escribir pruebas unitarias de sus aplicaciones, puede\nacceder con <code>require(&apos;assert&apos;)</code>.\n\n</p>\n",
       "methods": [
         {
           "textRaw": "assert.fail(actual, expected, message, operator)",
           "type": "method",
           "name": "fail",
-          "desc": "<p>Throws an exception that displays the values for <code>actual</code> and <code>expected</code> separated by the provided operator.\n\n</p>\n",
+          "desc": "<p>Evalua si <code>actual</code> es igual a <code>expected</code> usando el operador provisto.\n\n</p>\n",
           "signatures": [
             {
               "params": [
@@ -33,21 +31,15 @@
           ]
         },
         {
-          "textRaw": "assert(value, message), assert.ok(value, [message])",
+          "textRaw": "assert.ok(value, [message])",
           "type": "method",
           "name": "ok",
-          "desc": "<p>Tests if value is a <code>true</code> value, it is equivalent to <code>assert.equal(true, value, message);</code>\n\n</p>\n",
+          "desc": "<p>Evalua si el valor es <code>true</code>, si es equivalente a <code>assert.equal(true, value, message);</code>\n\n</p>\n",
           "signatures": [
             {
               "params": [
                 {
                   "name": "value"
-                },
-                {
-                  "name": "message)"
-                },
-                {
-                  "name": "assert.ok(value"
                 },
                 {
                   "name": "message",
@@ -61,7 +53,7 @@
           "textRaw": "assert.equal(actual, expected, [message])",
           "type": "method",
           "name": "equal",
-          "desc": "<p>Tests shallow, coercive equality with the equal comparison operator ( <code>==</code> ).\n\n</p>\n",
+          "desc": "<p>Evalua la igualdad con el operador de comparación ( <code>==</code> ).\n\n</p>\n",
           "signatures": [
             {
               "params": [
@@ -83,7 +75,7 @@
           "textRaw": "assert.notEqual(actual, expected, [message])",
           "type": "method",
           "name": "notEqual",
-          "desc": "<p>Tests shallow, coercive non-equality with the not equal comparison operator ( <code>!=</code> ).\n\n</p>\n",
+          "desc": "<p>Evalua la no igualdad con el operador de comparación en negación ( <code>!=</code> ).\n\n</p>\n",
           "signatures": [
             {
               "params": [
@@ -105,7 +97,7 @@
           "textRaw": "assert.deepEqual(actual, expected, [message])",
           "type": "method",
           "name": "deepEqual",
-          "desc": "<p>Tests for deep equality.\n\n</p>\n",
+          "desc": "<p>Pruebas para las pruebas de afirmación de desigualdad profunda.\n\n</p>\n",
           "signatures": [
             {
               "params": [
@@ -127,7 +119,7 @@
           "textRaw": "assert.notDeepEqual(actual, expected, [message])",
           "type": "method",
           "name": "notDeepEqual",
-          "desc": "<p>Tests for any deep inequality.\n\n</p>\n",
+          "desc": "<p>Pruebas para cualquier desigualdad profunda.\n\n</p>\n",
           "signatures": [
             {
               "params": [
@@ -149,7 +141,7 @@
           "textRaw": "assert.strictEqual(actual, expected, [message])",
           "type": "method",
           "name": "strictEqual",
-          "desc": "<p>Tests strict equality, as determined by the strict equality operator ( <code>===</code> )\n\n</p>\n",
+          "desc": "<p>Pruebas de igualdad estrictas, según lo determinado por el operador de igualdad estricto ( <code>===</code> )\n\n</p>\n",
           "signatures": [
             {
               "params": [
@@ -171,7 +163,7 @@
           "textRaw": "assert.notStrictEqual(actual, expected, [message])",
           "type": "method",
           "name": "notStrictEqual",
-          "desc": "<p>Tests strict non-equality, as determined by the strict not equal operator ( <code>!==</code> )\n\n</p>\n",
+          "desc": "<p>Pruebas de no igualdad estrictas, según lo determinado por el operador de no igualdad estricto ( <code>!==</code> )\n\n</p>\n",
           "signatures": [
             {
               "params": [
@@ -193,7 +185,7 @@
           "textRaw": "assert.throws(block, [error], [message])",
           "type": "method",
           "name": "throws",
-          "desc": "<p>Expects <code>block</code> to throw an error. <code>error</code> can be constructor, regexp or \nvalidation function.\n\n</p>\n<p>Validate instanceof using constructor:\n\n</p>\n<pre><code>assert.throws(\n  function() {\n    throw new Error(&quot;Wrong value&quot;);\n  },\n  Error\n);</code></pre>\n<p>Validate error message using RegExp:\n\n</p>\n<pre><code>assert.throws(\n  function() {\n    throw new Error(&quot;Wrong value&quot;);\n  },\n  /value/\n);</code></pre>\n<p>Custom error validation:\n\n</p>\n<pre><code>assert.throws(\n  function() {\n    throw new Error(&quot;Wrong value&quot;);\n  },\n  function(err) {\n    if ( (err instanceof Error) &amp;&amp; /value/.test(err) ) {\n      return true;\n    }\n  },\n  &quot;unexpected error&quot;\n);</code></pre>\n",
+          "desc": "<p>Se espera lanzar un <code>bloque</code>(block) de error. El <code>error</code> puede ser un constructor, expresión regular (regexp) o \nuna función de validación.\n\n</p>\n<p>Validar instanceof usando el constructor:\n\n</p>\n<pre><code>assert.throws(\n  function() {\n    throw new Error(&quot;Wrong value&quot;);\n  },\n  Error\n);</code></pre>\n<p>Validar un mensaje de error usando RegExp:\n\n</p>\n<pre><code>assert.throws(\n  function() {\n    throw new Error(&quot;Wrong value&quot;);\n  },\n  /value/\n);</code></pre>\n<p>Error de validación personalizado:\n\n</p>\n<pre><code>assert.throws(\n  function() {\n    throw new Error(&quot;Wrong value&quot;);\n  },\n  function(err) {\n    if ( (err instanceof Error) &amp;&amp; /value/.test(err) ) {\n      return true;\n    }\n  },\n  &quot;unexpected error&quot;\n);</code></pre>\n",
           "signatures": [
             {
               "params": [
@@ -216,7 +208,7 @@
           "textRaw": "assert.doesNotThrow(block, [error], [message])",
           "type": "method",
           "name": "doesNotThrow",
-          "desc": "<p>Expects <code>block</code> not to throw an error, see assert.throws for details.\n\n</p>\n",
+          "desc": "<p>Se espera un <code>bloque</code> (block) y no produzca un error, vea assert.throws para más detalles.\n\n</p>\n",
           "signatures": [
             {
               "params": [
@@ -239,7 +231,7 @@
           "textRaw": "assert.ifError(value)",
           "type": "method",
           "name": "ifError",
-          "desc": "<p>Tests if value is not a false value, throws if it is a true value. Useful when\ntesting the first argument, <code>error</code> in callbacks.\n</p>\n",
+          "desc": "<p>Comprueba si el valor no es falso, se produce un lanzamiento si el valor es verdadero. Muy útil\ncuando se prueba el primer argumento, <code>error</code> en los callbacks.\n</p>\n",
           "signatures": [
             {
               "params": [
