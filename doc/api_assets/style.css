@@ -8,7 +8,7 @@ body {
 	font-size: 14px;
   line-height: 180%;
   color: black;
-  margin: 0; padding: 49px 0 0 0;
+  margin: 0; padding: 24px 0 0 0;
   border-top: 6px #8CC84B solid;
 }
 a {
@@ -168,22 +168,27 @@ h3 + h3 {
     padding-right:40px;
   }
   h1 span, h2 span, h3 span, h4 span {
-    font-size:25px;
-    position:absolute;
-    display:block;
-    top:0;
-    right:0;
+    font-size: 25px;
+    position: absolute;
+    display: block;
+    top: 0;
+    right: 15px;
     opacity: 0.3;
   }
-  h1 span:hover, h2 span:hover, h3 span:hover, h4 span:hover {
-    opacity: 1;
+
+  h1 span.mark-en, h2 span.mark-en, h3 span.mark-en, h4 span.mark-en {
+    right: 0;
   }
+  h1 span:hover, h2 span:hover, h3 span:hover, h4 span:hover {
+  }
+  
   h1 span a, h2 span a, h3 span a, h4 span a {
     font-size: 0.8em;
     color: #000;
     text-decoration: none;
     font-family: Helvetica, Arial, sans-serif;
-    font-weight:bold;
+    font-weight: bold;
+    margin-left: 10px;
   }
 
   h1 span a.top, h3 span a.top, h3 span a.top, h4 span a.top {
@@ -240,7 +245,7 @@ code.pre {
     width: 775px;
     margin: 0 auto;
     text-align: center;
-	color: #d2d8ba;
+    color: #d2d8ba;
 
   /* preload platform-icons.png */
   background-image: url(http://nodejs.org/images/platform-icons.png);
@@ -251,6 +256,18 @@ code.pre {
 #intro.interior #logo {
     margin-left: -298px;
     border:0;
+}
+
+#bar {
+  height: 25px;
+  line-height: 25px;
+  text-align: right;
+  padding: 0 30px 0 0;
+}
+
+#bar span,
+#bar a {
+  margin: 0 0 0 4px;
 }
 
 hr {
@@ -383,7 +400,7 @@ p tt, p code {
 }
 
 #column2.interior p.twitter a {
-    background: url(http://nodejs.org/images/twitter-bird.png) no-repeat 0 4px;
+    background: url(../../images/twitter-bird.png) no-repeat 0 4px;
     padding-left: 37px;
     text-decoration: none;
 }

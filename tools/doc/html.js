@@ -51,6 +51,9 @@ function render(lexed, filename, template, cb) {
     template = template.replace(/__VERSION__/g, process.version);
     template = template.replace(/__TOC__/g, toc);
 
+    var bar = renderBAR(filename);
+    template = template.replace(/__BARNAV__/g, bar);
+
     // content has to be the last thing we do with
     // the lexed tokens, because it's destructive.
     content = marked.parser(lexed);
@@ -172,3 +175,27 @@ function getId(text) {
   return text;
 }
 
+function getName(file) {
+  return file.substr(0, file.length - 3) + '.html';
+}
+
+function renderBAR (file) {
+  var html = ''
+    , m = file.match(/.+-(\w\w)/)
+    , ln = m ? m[1] : 'en'
+    , fn = (ln == 'en' ? file : file.substr(0, file.length - 3)) + '.html';
+
+  html += ln == 'es'
+          ? ('<span>es</span>')
+          : ('<a title="Traducción al español" '
+             + 'class="mark mark-es" href="../api-es/'
+             + fn + '">es</a>');
+
+  html += ln == 'en'
+          ? ('<span>en</span>')
+          : ('<a title="Documentación en inglés" '
+             + 'class="mark mark-es" href="../api/'
+             + fn + '">en</a>');
+
+  return html;
+}

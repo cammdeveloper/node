@@ -3,7 +3,7 @@ Evented I/O for V8 javascript. [![Build Status](https://secure.travis-ci.org/joy
 
 ### Objetivo
 
-EL objetivo de este fork tiene pura y exclusivamente como objetivo hacer un
+El objetivo de este fork tiene pura y exclusivamente como objetivo hacer un
 seguimiento de la documentación de node en español.
 Para bien o para mal la documentación hasta el momento está almacenada en el
 mismo repositorio que el código fuente por lo que hemos optado por hacer algo 
@@ -21,7 +21,7 @@ Windows:
 
     vcbuild.bat
 
-### Para corresr tests:
+### Para ejecutar los tests:
 
 Unix/Macintosh:
 
@@ -42,8 +42,6 @@ Windows:
 ### Para leer la documentación:
 
     man doc/node.1
-
-
 
 ### Acerca de la traducción 
 
