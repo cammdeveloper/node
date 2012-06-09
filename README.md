@@ -71,8 +71,9 @@ seguimiento de la traducción es una complicación adicional. Si a esto le sumam
   si se está trabajando en la traducción Events un nombre de rama correto
   podría ser v0.6.18-release_events.
 
-  * Los archivos fuentes de la documentación están en formato .markdown dentro
-  de la carpeta doc/api/. Los archivos en español terminan en -es.markdwon.
+  $* Nunca se trabaja sobre los archivos originales. Cada vez que se traduce un
+  artículo se hace una copia del archivo (si es que no existe) con la terminación
+  -es.markdown.
 
   * Una vez que consideres que la traducción está lista puedes crear un pull-request para que sea visto y analizado por los colaboradores (todos nosotros) y si todo está bien mezclalro con master para luego actualizar los sitios web.
 
