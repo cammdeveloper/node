@@ -71,7 +71,7 @@ seguimiento de la traducción es una complicación adicional. Si a esto le sumam
   si se está trabajando en la traducción Events un nombre de rama correto
   podría ser v0.6.18-release_events.
 
-  $* Nunca se trabaja sobre los archivos originales. Cada vez que se traduce un
+  * Nunca se trabaja sobre los archivos originales. Cada vez que se traduce un
   artículo se hace una copia del archivo (si es que no existe) con la terminación
   -es.markdown.
 
