@@ -243,6 +243,7 @@ code.pre {
 
 #intro {
     width: 775px;
+    height: 100px;
     margin: 0 auto;
     text-align: center;
     color: #d2d8ba;
@@ -400,7 +401,7 @@ p tt, p code {
 }
 
 #column2.interior p.twitter a {
-    background: url(../../images/twitter-bird.png) no-repeat 0 4px;
+    background: url(../images/twitter-bird.png) no-repeat 0 4px;
     padding-left: 37px;
     text-decoration: none;
 }

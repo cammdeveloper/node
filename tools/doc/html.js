@@ -188,13 +188,13 @@ function renderBAR (file) {
   html += ln == 'es'
           ? ('<span>es</span>')
           : ('<a title="Traducción al español" '
-             + 'class="mark mark-es" href="../api-es/'
+             + 'class="mark mark-es" href="../'
              + fn + '">es</a>');
 
   html += ln == 'en'
           ? ('<span>en</span>')
           : ('<a title="Documentación en inglés" '
-             + 'class="mark mark-es" href="../api/'
+             + 'class="mark mark-es" href="en/'
              + fn + '">en</a>');
 
   return html;
